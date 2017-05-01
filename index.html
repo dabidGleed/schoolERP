@@ -350,9 +350,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a ui-sref='dashboard'><i class="fa fa-circle-o"></i> Students</a></li>
-            <li><a ui-sref='dashboard'><i class="fa fa-circle-o"></i> Student Admission</a></li>
-            <li><a ui-sref='dashboard'><i class="fa fa-circle-o"></i> Student Details</a></li>
+            <li><a ui-sref='student'><i class="fa fa-circle-o"></i> Students</a></li>
+            <li><a ui-sref='studentAdmission'><i class="fa fa-circle-o"></i> Student Admission</a></li>
+            <li><a ui-sref='studentDetails'><i class="fa fa-circle-o"></i> Student Details</a></li>
           </ul>
         </li>
         <!-- Staff Management -->
@@ -365,9 +365,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a ui-sref='dashboard'><i class="fa fa-circle-o"></i> Employee</a></li>
-            <li><a href="pages/Employee Management/Employee details.html"><i class="fa fa-circle-o"></i> Employee Details</a></li>
-            <li><a href="pages/Employee Management/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Employee Attendance</a></li>
+            <li><a ui-sref='employee'><i class="fa fa-circle-o"></i> Employee</a></li>
+            <li><a  ui-sref='employeeDetails'><i class="fa fa-circle-o"></i> Employee Details</a></li>
+            <li><a  ui-sref='employeeAttendance' ><i class="fa fa-circle-o"></i> Employee Attendance</a></li>
           </ul>
         </li>
         <!-- Attendance -->
@@ -380,8 +380,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/Attendance/Student Attendance.html"><i class="fa fa-circle-o"></i> Student Attendance</a></li>
-            <li><a href="pages/Attendance/Employee Attendance.html"><i class="fa fa-circle-o"></i> Employee Attendance</a></li>
+            <li><a  ui-sref='studentAttendance'><i class="fa fa-circle-o"></i> Student Attendance</a></li>
+            <li><a  ui-sref='employeeAttendance'><i class="fa fa-circle-o"></i> Employee Attendance</a></li>
             <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Attendance Reports</a></li>
           </ul>
         </li>
@@ -395,14 +395,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Subjects</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Chapters</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Assign Subjects</a></li>
+            <li><a ui-sref='subjects'><i class="fa fa-circle-o"></i> Subjects</a></li>
+            <li><a ui-sref='chapters'><i class="fa fa-circle-o"></i> Chapters</a></li>
+            <li><a  ui-sref='assignSubjects'><i class="fa fa-circle-o"></i> Assign Subjects</a></li>
           </ul>
         </li>
         <!-- Assignments -->
         <li class="treeview">
-          <a href="#">
+          <a  ui-sref='assignments'>
             <i class="fa fa-book" aria-hidden="true"></i>
             <span>Assignments</span>
           </a>
@@ -417,9 +417,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Exam Schedules</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Exam Papers</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Evaluations</a></li>
+            <li><a  ui-sref='examSchedules'><i class="fa fa-circle-o"></i>Exam Schedules</a></li>
+            <li><a  ui-sref='examPapers'><i class="fa fa-circle-o"></i> Exam Papers</a></li>
+            <li><a  ui-sref='evaluations'><i class="fa fa-circle-o"></i> Evaluations</a></li>
           </ul>
         </li>
         <!-- Timetable-->
@@ -431,10 +431,10 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Class-wise</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Teacher-wise</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> School Events</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Online NoticeBoard</a></li>
+            <li><a  ui-sref='classWise'><i class="fa fa-circle-o"></i> Class-wise</a></li>
+            <li><a ui-sref='teacherWise'><i class="fa fa-circle-o"></i> Teacher-wise</a></li>
+            <li><a ui-sref='schoolEvents'><i class="fa fa-circle-o"></i> School Events</a></li>
+            <li><a ui-sref='onlineNoticeBoard'><i class="fa fa-circle-o"></i> Online NoticeBoard</a></li>
           </ul>
         </li>
         <!-- Library-->
@@ -446,7 +446,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Library rules</a></li>
+            <li><a ui-sref='libraryRules'><i class="fa fa-circle-o"></i> Library rules</a></li>
             <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Add Book</a></li>
             <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Book List</a></li>
           </ul>
