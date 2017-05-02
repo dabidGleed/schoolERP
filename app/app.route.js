@@ -88,6 +88,26 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
          .state('main.libraryRules', { // login Page
             url: "library/libraryRules",
             templateUrl: "app/components/libraryRules/libraryRules.html"          
+        })
+        .state('main.addBook', { // login Page
+            url: "library/addBook",
+            templateUrl: "app/components/addBook/addBook.html"          
+        })
+         .state('main.bookList', { // login Page
+            url: "library/bookList",
+            templateUrl: "app/components/bookList/bookList.html"          
+        })
+          .state('main.addStation', { // login Page
+            url: "transport/addStation",
+            templateUrl: "app/components/addStation/addStation.html"          
+        })
+         .state('main.addBusRoute', { // login Page
+            url: "transport/addBusRoute",
+            templateUrl: "app/components/addBusRoute/addBusRoute.html"          
+        })
+         .state('main.routeGeolocation', { // login Page
+            url: "transport/routeGeolocation",
+            templateUrl: "app/components/routeGeolocation/routeGeolocation.html"          
         });
         $urlRouterProvider.otherwise("/dashboard");
         
