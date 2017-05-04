@@ -27,11 +27,13 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
          .state('main.employee', { // login Page
             url: "employeeInfo/employee",
-            templateUrl: "app/components/employee/employee.html"          
+            templateUrl: "app/components/employee/employee.html",
+            controller: "employeeController"        
         })
         .state('main.employeeDetails', { // login Page
             url: "employeeInfo/employeeDetails",
-            templateUrl: "app/components/employeeDetails/employeeDetails.html"          
+            templateUrl: "app/components/employeeDetails/employeeDetails.html",
+            controller:"employeeDetailsController" 
         })
         .state('main.employeeAttendance', { // login Page
             url: "employeeInfo/employeeAttendance",
