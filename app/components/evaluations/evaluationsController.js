@@ -1,5 +1,5 @@
 angular.module('school_erp')
-.controller("employeeController",['$http','$scope','employeeServices', function($http, $scope, employeeServices){
+.controller("evaluationsController",['$http','$scope', function($http, $scope){
         $scope.employeeData = [];
         employeeServices.getEmployee()
         .success(function(data, status){
