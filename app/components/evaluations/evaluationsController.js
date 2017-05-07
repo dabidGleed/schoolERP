@@ -7,5 +7,6 @@ angular.module('school_erp')
         })
         .error(function(data,success){
         })
+        
 }])
 
