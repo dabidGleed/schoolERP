@@ -1,9 +1,9 @@
 angular.module('school_erp')
-.controller("examShedulesController",['$http','$scope',, function($http, $scope){
-        $scope.employeeData = [];
-        employeeServices.getEmployee()
+.controller("examShedulesController",['$http','$scope','examServices', function($http, $scope, examServices){
+        $scope.examData = [];
+        examServices.getExamSchedule()
         .success(function(data, status){
-            $scope.employeeData = data.employee;
+            $scope.examData = data.exam_schedules;
         })
         .error(function(data,success){
         })
