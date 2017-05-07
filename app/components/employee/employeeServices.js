@@ -14,7 +14,7 @@
         return $http({
                     method: 'POST',
                     url: globalServices.globalValue.baseURL + 'api/employee/SCH-9271',
-                    data: dataValue,
+                    data: $.param(dataValue),
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })
       };

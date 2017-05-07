@@ -21,7 +21,7 @@ module.exports = function(grunt) {
           //  html:{ cwd: '', src: ['pages/**/*.html'], dest: 'build', expand: true},                     
             plugins:{ cwd: '', src: path.src.external_css, dest: 'build', expand: true},
             js:{ cwd: '', src: 'dist/js/**/*.*', dest: 'build', expand: true},
-            lib:{ cwd: '', src: 'dist/lib/*.*', dest: 'build', expand: true},
+            lib:{ cwd: '', src: 'dist/lib/**/*.*', dest: 'build', expand: true},
             component:{ cwd: '', src: ['app/components/**/*.html','index.html'], dest: 'build', expand: true}
            // index:{ cwd: 'src', src: '*.html', dest: 'build', expand: true},
            // angular:{ cwd: 'src', src: path.src.angular_src, dest: 'build', expand: true}
@@ -88,8 +88,8 @@ module.exports = function(grunt) {
             // for stylesheets, watch css and less files
             // only run less and cssmin
             stylesheets: {
-                files: ['app/components/**/*.html','dist/css/*.*','dist/css/**/*.*', 'dist/img','index.html'],
-                tasks: ['copy:component','copy:css','copy:img']
+                files: ['app/components/**/*.html','dist/css/*.*','dist/css/**/*.*', 'dist/img','index.html','dist/**/**/*.*'],
+                tasks: ['copy']
             },
             // for scripts, run jshint and uglify
             scripts: {
