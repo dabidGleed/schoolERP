@@ -186,10 +186,10 @@
                    </tr>
                   </thead>
                   <tbody>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>Paper 1</td>
+                   <tr ng-repeat="exam in examData">
+                    <td>{{$index}}</td>
+                    <td>{{exam.subject_id}}</td>
+                    <td>{{exam.exam_paper_title}}</td>
                     <td>100</td>
                     <td>17-06-2017</td>
                     <td>10:00</td>
@@ -203,160 +203,7 @@
                       </a>
                     </td>
                    </tr>
-                   <tr>
-                    <td>2</td>
-                    <td>Subject 2</td>
-                    <td>Paper 2</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>3</td>
-                    <td>Subject 3</td>
-                    <td>Paper 3</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>4</td>
-                    <td>Subject 4</td>
-                    <td>Paper 4</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>5</td>
-                    <td>Subject 5</td>
-                    <td>Paper 5</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>6</td>
-                    <td>Subject 6</td>
-                    <td>Paper 6</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>7</td>
-                   <td>Subject 7</td>
-                    <td>Paper 7</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>8</td>
-                    <td>Subject 8</td>
-                    <td>Paper 8</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>9</td>
-                    <td>Subject 9</td>
-                    <td>Paper 9</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>10</td>
-                    <td>Subject 10</td>
-                    <td>Paper 10</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                 </tbody>
+                  </tbody>
                 </table>
               </div>                       
             </div>

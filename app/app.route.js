@@ -66,7 +66,8 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
         .state('main.examPapers', { // login Page
             url: "examination/examPapers",
-            templateUrl: "app/components/examPapers/examPapers.html"          
+            templateUrl: "app/components/examPapers/examPapers.html",
+            controller:"examPapersController"         
         })
         .state('main.evaluations', { // login Page
             url: "examination/evaluations",
