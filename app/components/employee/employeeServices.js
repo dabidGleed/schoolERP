@@ -1,4 +1,4 @@
-      angular.module('school_erp')
+angular.module('school_erp')
 .factory('employeeServices',['$http', 'globalServices', function($http, globalServices){
     var employeeService = {};
 
