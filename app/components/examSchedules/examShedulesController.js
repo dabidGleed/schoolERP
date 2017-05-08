@@ -1,12 +1,17 @@
 angular.module('school_erp')
-.controller("examSchedulesController",['$http','$scope','examServices', function($http, $scope, examServices){
+.controller("examSchedulesController",['$http','$scope','examServices','ngDialog', function($http, $scope, examServices,ngDialog){
         $scope.examData = [];
-        examServices.getExamSchedule()
-        .success(function(data, status){
-            $scope.examData = data.exam_schedules;
-        })
-        .error(function(data,success){
-        })
+          $scope.today1 = '01/01/1975';
+
+        $scope.getExamScheduleData = function(){
+             examServices.getExamSchedule()
+            .success(function(data, status){
+                $scope.examData = data.exam_schedules;
+            })
+            .error(function(data,success){
+            })
+        }
+       
          $scope.addExamSchedule = function(data){
              var examDetails = {
                 exam_title: $scope.data.exam_title,
@@ -15,12 +20,23 @@ angular.module('school_erp')
              }
             examServices.setExamSchedule(examDetails)   
             .success(function(data, status){
-               console.log("Data added");
+                ngDialog.open({
+                template: '<p>ExamSchedules are Added Successfully.</p>',
+                plain: true
+                });
+                $scope.examData = [];
+                $scope.getExamScheduleData();
             })
             .error(function(data,success){
-                
+                ngDialog.open({
+                template: '<p>Some Error Occured!</p>',
+                plain: true
+                });
             })
+           
         }
+
+        $scope.getExamScheduleData();
 
 }])
 
