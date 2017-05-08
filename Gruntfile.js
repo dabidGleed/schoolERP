@@ -21,7 +21,7 @@ module.exports = function(grunt) {
           //  html:{ cwd: '', src: ['pages/**/*.html'], dest: 'build', expand: true},                     
             plugins:{ cwd: '', src: path.src.external_css, dest: 'build', expand: true},
             js:{ cwd: '', src: 'dist/js/**/*.*', dest: 'build', expand: true},
-            lib:{ cwd: '', src: 'dist/lib/**/*.*', dest: 'build', expand: true},
+            lib:{ cwd: '', src: 'dist/lib/**/**', dest: 'build', expand: true},
             component:{ cwd: '', src: ['app/components/**/*.html','index.html'], dest: 'build', expand: true}
            // index:{ cwd: 'src', src: '*.html', dest: 'build', expand: true},
            // angular:{ cwd: 'src', src: path.src.angular_src, dest: 'build', expand: true}
