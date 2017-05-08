@@ -62,7 +62,7 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Search by keyword</label>
-                      <input type="text" name="search_text" class="form-control" placeholder="Search...">
+                      <input type="text" ng-model="searchEmp" name="search_text" class="form-control" placeholder="Search...">
                     </div>
                   </div>
 
@@ -103,7 +103,7 @@
                    </tr>
                   </thead>
                  <tbody>
-                   <tr ng-repeat="employee in employeeData">
+                   <tr ng-repeat="employee in employeeData | filter:searchEmp">
                     <td>{{employee.employee_id}}</td>
                     <td><a href="">{{employee.name}} {{employee.surname}}</a></td>
                     <td>{{employee.job_category}}</td>

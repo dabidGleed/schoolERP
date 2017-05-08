@@ -1,5 +1,5 @@
 angular.module('school_erp')
-.controller("employeeDetailsController",['$http','$scope','employeeServices', function($http, $scope, employeeServices){
+.controller("employeeDetailsController",['$http','$scope','employeeServices','ngDialog', function($http, $scope, employeeServices, ngDialog){
         $scope.employeeDetailsData = [];
         $scope.data = [];
         $scope.today1 = '01/01/1975';
@@ -18,10 +18,17 @@ angular.module('school_erp')
              }
             employeeServices.setEmployee(empDetails)   
             .success(function(data, status){
-               console.log("Data added");
+                ngDialog.open({
+                template: '<p>Employeee Added Successfully.</p>',
+                plain: true
+                });
+                $scope.data = [];
             })
             .error(function(data,success){
-                
+                 ngDialog.open({
+                template: '<p>Some Error Occured!</p>',
+                plain: true
+                });
             })
         }
 
