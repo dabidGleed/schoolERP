@@ -60,6 +60,15 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
+                      <label>Date of Birth</label>
+                      <!--<input type="text" class="form-control pull-right" id="datepicker" ng-model="" placeholder="Select a Date ...">-->
+                      <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
+                          <input class="form-control" name="startDate" type="text" ng-model="data.dob" ng-readonly="true" placeholder="Enter ..." required/>
+                      </datepicker>
+                      </div>                    
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
                       <label>Gender</label>
                       <select class="form-control select2" style="width: 100%;" ng-model="data.gender">
                         <option selected="selected">--Select--</option>
@@ -67,28 +76,23 @@
                         <option value="female">Female</option>
                       </select>
                     </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Date of Birth</label>
-                      <input type="text" class="form-control pull-right" id="datepicker" ng-model="data.dob" placeholder="Select a Date ...">
-                      </div>                    
-                  </div>
+                  </div>                  
                 </div>
                 
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Experience</label>
-                      <input type="text" class="form-control" ng-model="data.experience" placeholder="Enter ...">
+                      <input type="text" class="form-control" ng-model="data.experience" placeholder="Enter ...">                     
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Date of Joining</label>
-                      <input type="text" class="form-control pull-right" id="datepicker" ng-model="data.joined_on" placeholder="Select a Date ...">
+                      <label>Date of Joining</label>                   
+                       <datepicker date-min-limit='today1' date-format="dd-MM-yyyy" style="z-index:999">
+                          <input class="form-control" name="startDate" type="text" ng-model="data.joined_on" ng-readonly="true" placeholder="Enter ..." required/>
+                      </datepicker>
                       </div>                    
                   </div>
                 </div>
@@ -98,6 +102,10 @@
                     <div class="form-group">
                       <label>Job Profile</label>
                       <input type="text" class="form-control" ng-model="data.job_category" placeholder="Enter ...">
+                    </div>
+                    <div class="form-group">
+                      <label>Website</label>
+                      <input type="text" class="form-control" ng-model="data.website" placeholder="Enter ...">
                     </div>
                   </div>
                   

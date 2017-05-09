@@ -81,7 +81,7 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Exam Paper</h3>
                 </div>
-                
+                  <form name="examPapers" ng-submit="addExamPapers(data)" novalidate>
                 <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
@@ -102,13 +102,13 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Paper Title</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control"  ng-model="data.exam_paper_title" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Max Marks</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control"   placeholder="Enter ...">
                       </div>
                     </div>
                     
@@ -122,7 +122,9 @@
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" id="datepicker">
+                           <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
+                             <input class="form-control" name="startDate" type="text" ng-model="data.date" ng-readonly="true" placeholder="Enter ..." required/>
+                           </datepicker> 
                         </div>
                       </div>
                     </div>
@@ -130,7 +132,7 @@
                       <div class="form-group">
                         <label>Start Time</label>
                         <div class="input-group">
-                            <input type="text" class="form-control timepicker">
+                            <input type="text"  ng-model="data.time_from" class="form-control timepicker">
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
                             </div>
@@ -141,7 +143,7 @@
                       <div class="form-group">
                         <label>End Time</label>
                         <div class="input-group">
-                            <input type="text" class="form-control timepicker">
+                            <input type="text"  ng-model="data.time_to" class="form-control timepicker">
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
                             </div>
@@ -156,6 +158,7 @@
                         <button type="submit" class="btn btn-primary pull-right">Add Paper</button>
                     </div> 
                 </div>
+                  </form>
               </div>
 
               
@@ -181,19 +184,19 @@
                     <th>Max Marks</th>
                     <th>Exam Date</th>
                     <th>Start Time</th>
-                    <th>Due Time</th>
+                    <th> End Time</th>
                     <th class="pull-right">Action</th>
                    </tr>
                   </thead>
                   <tbody>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>Paper 1</td>
+                   <tr ng-repeat="exam in examData">
+                    <td>{{$index}}</td>
+                    <td>{{exam.subject_id}}</td>
+                    <td>{{exam.exam_paper_title}}</td>
                     <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
+                    <td>{{exam.date}}</td>
+                    <td>{{exam.time_from}}</td>
+                    <td>{{exam.time_to}}</td>
                     <td class="pull-right">
                       <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
                         <i class="fa fa-pencil"></i>
@@ -203,160 +206,7 @@
                       </a>
                     </td>
                    </tr>
-                   <tr>
-                    <td>2</td>
-                    <td>Subject 2</td>
-                    <td>Paper 2</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>3</td>
-                    <td>Subject 3</td>
-                    <td>Paper 3</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>4</td>
-                    <td>Subject 4</td>
-                    <td>Paper 4</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>5</td>
-                    <td>Subject 5</td>
-                    <td>Paper 5</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>6</td>
-                    <td>Subject 6</td>
-                    <td>Paper 6</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>7</td>
-                   <td>Subject 7</td>
-                    <td>Paper 7</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>8</td>
-                    <td>Subject 8</td>
-                    <td>Paper 8</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>9</td>
-                    <td>Subject 9</td>
-                    <td>Paper 9</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>10</td>
-                    <td>Subject 10</td>
-                    <td>Paper 10</td>
-                    <td>100</td>
-                    <td>17-06-2017</td>
-                    <td>10:00</td>
-                    <td>1:00</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                 </tbody>
+                  </tbody>
                 </table>
               </div>                       
             </div>
