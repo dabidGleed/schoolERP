@@ -52,6 +52,7 @@ datepicker, .datepicker, [datepicker],
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+   min-width: 200px;
 }
 ._720kb-datepicker-calendar._720kb-datepicker-open,._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
   visibility: visible;
