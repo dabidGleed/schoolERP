@@ -35,7 +35,9 @@ angular.module('school_erp')
             })
            
         }
-
+        $scope.EditExamSchedule = function(value){
+        $scope.editdata = $scope.examData[value];
+        }
         $scope.getExamScheduleData();
 
 }])

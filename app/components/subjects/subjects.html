@@ -129,142 +129,16 @@
                    </tr>
                   </thead>
                   <tbody>
-                   <tr>
+                   <tr ng-repeat="subjects in subjectsData">
                     <td>1</td>
                     <td>Subject 1</td>
                     <td>181990</td>
                     <td>Theory</td>
                     <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
+                      <a href="" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" title="Edit">
                         <i class="fa fa-pencil"></i>
                       </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
+                      <a href="" class="btn btn-default btn-xs" title="Delete">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                       </a>
                     </td>
@@ -278,3 +152,54 @@
     </section>
   </div>
   
+ <!--Edit values modal Starts here-->
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <form name="employeeDetails" ng-submit="addEmployee(data)" novalidate>
+         <div class="modal-header">
+            <h3>Edit Subjects</h3>
+        </div>
+        <div class="modal-body">
+       
+        <!-- /.box-header -->
+         <!-- /.box-header -->
+         
+                
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Subject Name</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Subject Code</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="radio">
+                        <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                        Theory
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                        Practical
+                        </label>
+                      </div>
+                    </div>
+                </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Edit Subject</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+     </form>
+      </div>
+    </div>
+  </div>
