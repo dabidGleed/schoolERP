@@ -1,11 +1,6 @@
 angular.module('school_erp')
 .controller("assignmentsController",['$http','$scope', function($http, $scope){
-        $scope.employeeData = [];
-        employeeServices.getEmployee()
-        .success(function(data, status){
-            $scope.employeeData = data.employee;
-        })
-        .error(function(data,success){
-        })
+        $scope.assignmentsData = [1,2,3];
+       
 }])
 
