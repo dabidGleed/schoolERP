@@ -19,7 +19,8 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
         .state('main.student', { // login Page
             url: "studentInfo/student",
-            templateUrl: "app/components/student/student.html"          
+            templateUrl: "app/components/student/student.html",
+            controller: "studentController"       
         })
         .state('main.studentDetails', { // login Page
             url: "studentInfo/studentDetails",
@@ -45,11 +46,13 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
         .state('main.subjects', { // login Page
             url: "academics/subjects'",
-            templateUrl: "app/components/subjects/subjects.html"          
+            templateUrl: "app/components/subjects/subjects.html",
+            controller:"subjectsController"         
         })
         .state('main.chapters', { // login Page
             url: "academics/chapters",
-            templateUrl: "app/components/chapters/chapters.html"          
+            templateUrl: "app/components/chapters/chapters.html",
+            controller:"chaptersController"          
         })
         .state('main.assignSubjects', { // login Page
             url: "academics/assignSubjects",
@@ -57,7 +60,8 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
          .state('main.assignments', { // login Page
             url: "academics/assignments",
-            templateUrl: "app/components/assignments/assignments.html"          
+            templateUrl: "app/components/assignments/assignments.html",
+            controller:"assignmentsController"        
         })
          .state('main.examSchedules', { // login Page
             url: "examination/examSchedules",
