@@ -15,7 +15,8 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
         .state('main.studentAdmission', { // login Page
             url: "studentInfo/studentAdmission",
-            templateUrl: "app/components/studentAdmission/studentAdmission.html"          
+            templateUrl: "app/components/studentAdmission/studentAdmission.html",
+            controller:"studentAdmissionController"        
         })
         .state('main.student', { // login Page
             url: "studentInfo/student",
@@ -60,7 +61,8 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
          .state('main.assignments', { // login Page
             url: "academics/assignments",
-            templateUrl: "app/components/assignments/assignments.html"          
+            templateUrl: "app/components/assignments/assignments.html",
+            controller:"assignmentsController"        
         })
          .state('main.examSchedules', { // login Page
             url: "examination/examSchedules",
