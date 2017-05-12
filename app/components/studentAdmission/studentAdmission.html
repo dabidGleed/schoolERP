@@ -21,7 +21,9 @@
 
         </div>
         <!-- /.box-header -->
+        <form name="studentAdmission" ng-submit="addStudent(data)" novalidate> 
         <div class="box-body">
+         
                 <div class="row">
                   <div class="col-md-3">
                     <div class="form-group">
@@ -40,13 +42,9 @@
                   <div class="col-md-3">  
                     <div class="form-group">
                       <label>Class</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select class="form-control select2" style="width: 100%;" ng-model="classId">
                         <option selected="selected">--Select--</option>
-                        <option>Class 6</option>
-                        <option>Class 7</option>
-                        <option>Class 8</option>
-                        <option>Class 9</option>
-                        <option>Class 10</option>
+                        <option ng-repeat="class in classData" value="{{class.class_id}}">{{class.name}}</option>
                       </select>
                     </div>
                   </div>
@@ -67,14 +65,14 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>First Name</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.student_name" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
 
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Last Name</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.student_surname" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                                                   
@@ -92,7 +90,9 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Date of Birth</label>
-                      <input type="text" class="form-control pull-right" id="datepicker">
+                       <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
+                         <input class="form-control" name="startDate" type="text" ng-model="data.dob" ng-readonly="true" placeholder="Enter ..." required/>
+                       </datepicker>
                       </div>                    
                   </div>
                     
@@ -115,21 +115,21 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Religion</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.job_category" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                     
                   <div class="col-md-3">  
                     <div class="form-group">
                       <label>Contact No</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.phone" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                   
                   <div class="col-md-3">  
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.email" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                 </div>
@@ -138,14 +138,16 @@
                   <div class="col-md-4">
                     <div class="form-group">
                         <label>Admission Date</label>
-                        <input type="text" class="form-control pull-right" id="datepicker">
+                         <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
+                           <input class="form-control" name="startDate" type="text" ng-model="data.admission_date" ng-readonly="true" placeholder="Enter ..." required/>
+                       </datepicker>
                     </div>
                   </div>
                     
                   <div class="col-md-4">
                     <div class="form-group">
                         <label>Student Photo</label>
-                        <input type="file" name="first_doc" id="doc1">
+                        <input type="file" ng-model="data.job_category"  name="first_doc" id="doc1">
                     </div>
                   </div>
         </div>
@@ -252,6 +254,8 @@
         <div class="box-footer">
            <button type="submit" class="btn btn-primary pull-right">Submit</button>
         </div>
+        </form>
+      </div>
       </div>
       <!-- /.row -->
       <!-- Main row -->

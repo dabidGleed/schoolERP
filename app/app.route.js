@@ -15,7 +15,8 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
         .state('main.studentAdmission', { // login Page
             url: "studentInfo/studentAdmission",
-            templateUrl: "app/components/studentAdmission/studentAdmission.html"          
+            templateUrl: "app/components/studentAdmission/studentAdmission.html",
+            controller:"studentAdmissionController"        
         })
         .state('main.student', { // login Page
             url: "studentInfo/student",
