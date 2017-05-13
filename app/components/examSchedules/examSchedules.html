@@ -67,12 +67,12 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Schedules</h3>
                 </div>
-                
+                <form name="examSchedule" ng-submit="addExamSchedule(data)" novalidate>
                 <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Examination Title</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" ng-model="data.exam_title" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -82,7 +82,7 @@
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" id="datepicker">
+                          <input type="text" class="form-control pull-right" ng-model="data.exam_classes" id="datepicker">
                         </div>
                       </div>
                     </div>
@@ -93,17 +93,18 @@
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" id="datepicker">
+                          <input type="text" class="form-control pull-right" ng-model="data.from_date" id="datepicker">
                         </div>
                       </div>
                     </div>
                 </div>
-       
+                
                 <div class="row">
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary pull-right">Add Schedule</button>
                     </div> 
                 </div>
+                </form>
               </div>
 
               
@@ -131,137 +132,13 @@
                    </tr>
                   </thead>
                   <tbody>
-                   <tr>
-                    <td>1</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>2</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>3</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>4</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>5</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>6</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>7</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>8</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>9</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>10</td>
-                    <td>Examination 1</td>
-                    <td>05-06-2017</td>  
-                    <td>17-06-2017</td>
+                   <tr ng-repeat="exam in examData">
+                    <td>{{exam.exam_title}}</td>
+                    <td>{{exam.from_date}}</td>
+                    <td>{{exam.exam_id}}</td>  
+                    <td></td>
+                    <td>{{exam.time_from}}</td>
+                    <td>{{exam.time_from}}</td>
                     <td class="pull-right">
                       <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
                         <i class="fa fa-pencil"></i>

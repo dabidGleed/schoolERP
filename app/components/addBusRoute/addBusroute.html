@@ -1,0 +1,285 @@
+
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-bus"></i>
+        Transport
+        <small>Add Bus Route</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Transport</li>
+        <li class="active">Add Bus Route</li>
+      </ol>
+    </section>
+    <!-- /.Content Header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Select Criteria -->
+      <div class="box box-default">
+        <div class="box-header with-border">
+          
+          <h3 class="box-title">Create Bus Route</h3>
+
+        </div>
+          
+        <div class="box-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Route Title</label>
+                      <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Vehicle Code</label>
+                      <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                  </div>
+                    
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Vehicle Number</label>
+                      <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary pull-right">  Add Route  </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Select Route</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">--Select--</option>
+                        <option>Route 1</option>
+                        <option>Route 2</option>
+                        <option>Route 3</option>
+                        <option>Route 4</option>
+                        <option>Route 5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Select a Station</label>
+                            <select class="form-control select2" style="width: 100%;">
+                                <option selected="selected">--Select--</option>
+                                <option>Station 1</option>
+                                <option>Station 2</option>
+                                <option>Station 3</option>
+                                <option>Station 4</option>
+                                <option>Station 5</option>
+                            </select>    
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="bootstrap-timepicker">
+                            <div class="form-group">
+                                <label>Pickup Time</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control timepicker">
+                                        <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                        </div>
+                                    </div>
+                  <!-- /.input group -->
+                            </div>
+                <!-- /.form group -->
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="bootstrap-timepicker">
+                            <div class="form-group">
+                                <label>Dropping Time</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control timepicker">
+                                        <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                        </div>
+                                    </div>
+                  <!-- /.input group -->
+                            </div>
+                <!-- /.form group -->
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary pull-right">  Create Bus Route  </button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+              
+    <!-- /.content -->
+    
+    <!-- Content List -->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                  <h3 class="box-title">Route List</h3>
+            </div>
+          <div class="box-body">       
+                
+            <div class="tab-content">
+              <div class="mailbox-controls">
+                <div class="pull-right">
+                              
+                </div><!-- /.pull-right -->
+              </div>  
+              
+              <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>#</th>  
+                      <th>Route Title</th>
+                      <th>Vehicle Number</th>
+                      <th>Vehicle Code</th>
+                      <th class="pull-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="mailbox-name"> 1.</td>  
+                      <td class="mailbox-name"> Beach Road</td>
+                      <td class="mailbox-name"> AP31 A1801</td>
+                      <td class="mailbox-name"> A1801</td>  
+                      <td class="mailbox-date pull-right">                    
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" onclick="return confirm('Are you sure you want to delete this item?');" data-original-title="Delete">
+                            <i class="fa fa-remove"></i>
+                        </a>                                                                
+                      </td>      
+                    </tr>
+                    
+                    <tr>
+                      <td class="mailbox-name"> 2.</td>  
+                      <td class="mailbox-name"> Beach Road</td>
+                      <td class="mailbox-name"> AP31 A1801</td>
+                      <td class="mailbox-name"> A1801</td>                       
+                      <td class="mailbox-date pull-right">                    
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" onclick="return confirm('Are you sure you want to delete this item?');" data-original-title="Delete">
+                            <i class="fa fa-remove"></i>
+                        </a>                                                                
+                      </td>      
+                    </tr>
+                    
+                    <tr>
+                      <td class="mailbox-name"> 3.</td>  
+                      <td class="mailbox-name"> Beach Road</td>
+                      <td class="mailbox-name"> AP31 A1801</td>
+                      <td class="mailbox-name"> A1801</td>                      
+                      <td class="mailbox-date pull-right">                    
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" onclick="return confirm('Are you sure you want to delete this item?');" data-original-title="Delete">
+                            <i class="fa fa-remove"></i>
+                        </a>                                                                
+                      </td>      
+                    </tr>
+                  
+                    <tr>
+                      <td class="mailbox-name"> 4.</td>
+                      <td class="mailbox-name"> Beach Road</td>
+                      <td class="mailbox-name"> AP31 A1801</td>
+                      <td class="mailbox-name"> A1801</td>                       
+                      <td class="mailbox-date pull-right">                    
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" onclick="return confirm('Are you sure you want to delete this item?');" data-original-title="Delete">
+                            <i class="fa fa-remove"></i>
+                        </a>                                                                
+                      </td>      
+                    </tr>
+                    
+                    <tr>
+                      <td class="mailbox-name"> 5.</td>
+                      <td class="mailbox-name"> Beach Road</td>
+                      <td class="mailbox-name"> AP31 A1801</td>
+                      <td class="mailbox-name"> A1801</td>                       
+                      <td class="mailbox-date pull-right">                    
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" onclick="return confirm('Are you sure you want to delete this item?');" data-original-title="Delete">
+                            <i class="fa fa-remove"></i>
+                        </a>                                                                
+                      </td>      
+                    </tr>
+                    
+                    <tr>
+                      <td class="mailbox-name"> 6.</td>
+                      <td class="mailbox-name"> Beach Road</td>
+                      <td class="mailbox-name"> AP31 A1801</td>
+                      <td class="mailbox-name"> A1801</td>                    
+                      <td class="mailbox-date pull-right">                    
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" onclick="return confirm('Are you sure you want to delete this item?');" data-original-title="Delete">
+                            <i class="fa fa-remove"></i>
+                        </a>                                                                
+                      </td>      
+                    </tr>
+                    
+                    <tr>
+                      <td class="mailbox-name"> 7.</td>
+                      <td class="mailbox-name"> Beach Road</td>
+                      <td class="mailbox-name"> AP31 A1801</td>
+                      <td class="mailbox-name"> A1801</td>                       
+                      <td class="mailbox-date pull-right">                    
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" onclick="return confirm('Are you sure you want to delete this item?');" data-original-title="Delete">
+                            <i class="fa fa-remove"></i>
+                        </a>                                                                
+                      </td>      
+                    </tr>
+                    
+                    <tr>
+                      <td class="mailbox-name"> 8.</td>
+                      <td class="mailbox-name"> Beach Road</td>
+                      <td class="mailbox-name"> AP31 A1801</td>
+                      <td class="mailbox-name"> A1801</td>                        
+                      <td class="mailbox-date pull-right">                    
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" onclick="return confirm('Are you sure you want to delete this item?');" data-original-title="Delete">
+                            <i class="fa fa-remove"></i>
+                        </a>                                                                
+                      </td>      
+                    </tr>
+                  </tbody>
+                </table><!-- /.table -->
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  
