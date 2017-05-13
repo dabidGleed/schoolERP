@@ -68,30 +68,30 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Subjects</h3>
                 </div>
-                
+              <form name="examPapers" ng-submit="addSubjects(data)" novalidate>
                 <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Subject Name</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" ng-model="data.name" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Subject Code</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" ng-model="data.subject_id" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="radio">
                         <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1"  value="option1" checked="">
                         Theory
                         </label>
                       </div>
                       <div class="radio">
                         <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2"  value="option2">
                         Practical
                         </label>
                       </div>
@@ -99,9 +99,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary pull-right">Add Subject</button>
+                    <button type="submit" ng class="btn btn-primary pull-right">Add Subject</button>
                     </div>                  
                 </div>
+                  </form>
               </div>
 
               
@@ -130,10 +131,10 @@
                   </thead>
                   <tbody>
                    <tr ng-repeat="subjects in subjectsData">
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
+                      <td>{{$index}}</td>
+                     <td>{{subjects.name}}</td>
+                      <td>{{subjects.subject_id}} </td>
+                      <td>{{subjects._id}}</td>
                     <td class="pull-right">
                       <a href="" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" title="Edit">
                         <i class="fa fa-pencil"></i>
