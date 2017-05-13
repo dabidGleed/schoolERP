@@ -1,8 +1,8 @@
 angular.module('school_erp')
 .controller("studentAdmissionController",['$http','$scope','studentServices', 'ngDialog', function($http, $scope, studentServices, ngDialog){
         $scope.classData = [];
-        $scope.data = [];
-        $scope.parent = [];
+        $scope.data = [];   
+        $scope.parent = [];   
         studentServices.getClass()
         .success(function(data, status){
             $scope.classData = data.school_classes;// Api list-name
@@ -28,11 +28,13 @@ angular.module('school_erp')
            
             studentServices.setStudent(stdAdmission, $scope.classId)   
             .success(function(data, status){
+                $scope.addParent(data.id);
                 ngDialog.open({
                 template: '<p> Student Information  submitted successfully </p>',
                 plain: true
                 });
                 $scope.data = [];
+                
             })
             .error(function(data,success){
                  ngDialog.open({
@@ -43,22 +45,22 @@ angular.module('school_erp')
         }
 
         
-        $scope.addParent = function(parent){
+        $scope.addParent = function(studentId){
             var parentDetails = {
-                parent_name:$cope.parent.parent_name,
-                parent_contact:$cope.parent.parent_contact,
-                parent_relation:$cope.parent.parent_relation
+                parent_name:$scope.parent.parent_name,
+                parent_contact:$scope.parent.parent_contact,
+                parent_relation:$scope.parent.parent_relation
             }
             
             studentServices.setParent(parentDetails,studentId)   
-            .success(function(parent, status){
+            .success(function(data, status){
                 ngDialog.open({
-                template: '<p> Student Information  submitted successfully </p>',
+                template: '<p> Parent Added successfully </p>',
                 plain: true
                 });
-                $scope.data = [];
+                $scope.parent = [];
             })
-            .error(function(parent,success){
+            .error(function(data,success){
                  ngDialog.open({
                 template: '<p>Some Error Occured!</p>',
                 plain: true

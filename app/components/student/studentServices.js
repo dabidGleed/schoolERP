@@ -27,8 +27,8 @@ angular.module('school_erp')
       studentServices.setParent = function(parentDetails,studentId){       
         return $http({
                     method: 'POST',
-                    url: globalServices.globalValue.baseURL + 'api/students/'+studentId,
-                    data: $.param(dataValue),
+                    url: globalServices.globalValue.baseURL + 'api/add_parent/'+studentId,
+                    data: $.param(parentDetails),
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })
       };

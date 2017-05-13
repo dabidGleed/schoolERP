@@ -37,6 +37,30 @@ angular.module('school_erp')
         }
         $scope.EditExamSchedule = function(value){
         $scope.editdata = $scope.examData[value];
+    }
+    
+      $scope.EditExamSchedule = function(editdata){
+             var examDetails = {
+                exam_title: $scope.editdata.exam_title,
+                exam_classes: $scope.editdata.exam_classes,
+                from_date: $scope.editdata.from_date
+             }
+            examServices.EditExamSchedule(examDetails)   
+            .success(function(data, status){
+                ngDialog.open({
+                template: '<p>ExamSchedules are Edited Successfully.</p>',
+                plain: true
+                });
+                $scope.examData = [];
+                $scope.getExamScheduleData();
+            })
+            .error(function(data,success){
+                ngDialog.open({
+                template: '<p>Some Error Occured!</p>',
+                plain: true
+                });
+            })
+           
         }
         $scope.getExamScheduleData();
 

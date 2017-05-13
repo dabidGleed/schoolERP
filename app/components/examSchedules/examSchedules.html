@@ -164,16 +164,18 @@
  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
-        <form name="employeeDetails" ng-submit="addEmployee(data)" novalidate>
+        
          <div class="modal-header">
             <h3>Edit Schedule</h3>
         </div>
+  <form name="examSchedule" ng-submit="EditExamSchedule(editdata)" novalidate>
+  
         <div class="modal-body">
        
         <!-- /.box-header -->
          <!-- /.box-header -->
       
-                <form name="examSchedule" ng-submit="addExamSchedule(data)" novalidate>
+                
                 <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
@@ -218,10 +220,10 @@
                 <button type="submit" class="btn btn-primary">Edit Schedule</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               </div>
-        
+         </form>
         </div>
        
-     </form>
+    
       </div>
     </div>
   </div>
