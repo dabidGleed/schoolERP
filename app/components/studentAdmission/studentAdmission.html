@@ -21,38 +21,38 @@
 
         </div>
         <!-- /.box-header -->
-        <form name="studentAdmission" ng-submit="addStudent(data)" novalidate> 
+        <form name="studentAdmission" ng-submit="studentAdmission.$valid && addStudent(data)" novalidate> 
         <div class="box-body">
          
                 <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
+                  <!--<div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted && studentAdmission.admissionNo.$invalid && studentAdmission.admissionNo.$pristine}">
                       <label>Admission No</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" name="admissionNo" ng-model="data.admissionNo" class="form-control" placeholder="Enter ..." required>
                     </div>
-                  </div>
+                  </div>-->
 
-                  <div class="col-md-3">
+                  <!--<div class="col-md-3">
                     <div class="form-group">
                       <label>Roll No</label>
                       <input type="text" class="form-control" placeholder="Enter ...">
                     </div>
-                  </div>
+                  </div>-->
                     
-                  <div class="col-md-3">  
-                    <div class="form-group">
+                  <div class="col-md-6">  
+                    <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.class.$pristine}">
                       <label>Class</label>
-                      <select class="form-control select2" style="width: 100%;" ng-model="classId">
+                      <select name="class" class="form-control select2" style="width: 100%;" ng-model="classId">
                         <option selected="selected">--Select--</option>
                         <option ng-repeat="class in classData" value="{{class.class_id}}">{{class.name}}</option>
                       </select>
                     </div>
                   </div>
                   
-                  <div class="col-md-3">
-                    <div class="form-group">
+                  <div class="col-md-6">
+                    <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.section.$pristine}">
                       <label>Section</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select name="section"  class="form-control select2" ng-model="data.section" style="width: 100%;">
                         <option selected="selected">--Select--</option>
                         <option>Section A</option>
                         <option>Section B</option>
@@ -60,26 +60,26 @@
                     </div>
                   </div>
                 </div>
-            
+                
                 <div class="row">
                   <div class="col-md-3">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted && studentAdmission.firstName.$invalid && studentAdmission.firstName.$pristine}">
                       <label>First Name</label>
-                      <input type="text" ng-model="data.student_name" class="form-control" placeholder="Enter ...">
+                      <input type="text" name="firstName" ng-model="data.student_name" class="form-control" placeholder="Enter ..." required>
                     </div>
                   </div>
 
                   <div class="col-md-3">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted && studentAdmission.lastName.$invalid && studentAdmission.lastName.$pristine}">
                       <label>Last Name</label>
-                      <input type="text" ng-model="data.student_surname" class="form-control" placeholder="Enter ...">
+                      <input type="text" name="lastName" ng-model="data.student_surname" class="form-control" placeholder="Enter ..." required>
                     </div>
                   </div>
                                                   
                   <div class="col-md-3">
-                    <div class="form-group">
+                    <div class="form-group"  ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.gender.$pristine}">
                       <label>Gender</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select name="gender" ng-model="data.gender" class="form-control select2" style="width: 100%;">
                         <option selected="selected">--Select--</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -88,10 +88,10 @@
                   </div>
                     
                   <div class="col-md-3">
-                    <div class="form-group">
+                    <div class="form-group"  ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.dob.$pristine}">
                       <label>Date of Birth</label>
                        <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
-                         <input class="form-control" name="startDate" type="text" ng-model="data.dob" ng-readonly="true" placeholder="Enter ..." required/>
+                         <input name="dob" class="form-control" type="text" ng-model="data.dob" ng-readonly="true" placeholder="Enter ..." required/>
                        </datepicker>
                       </div>                    
                   </div>
@@ -136,10 +136,10 @@
             
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.admissionDate.$pristine}">
                         <label>Admission Date</label>
                          <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
-                           <input class="form-control" name="startDate" type="text" ng-model="data.admission_date" ng-readonly="true" placeholder="Enter ..." required/>
+                           <input name="admissionDate" class="form-control"  type="text" ng-model="data.admission_date" ng-readonly="true" placeholder="Enter ..." required/>
                        </datepicker>
                     </div>
                   </div>
@@ -162,9 +162,9 @@
         <div class="box-body">
                 <div class="row">
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group"  ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.fatherName.$pristine}">
                         <label>Father Name</label>
-                        <input type="text" ng-model="parent.parent_name" class="form-control" placeholder="Enter ...">
+                        <input type="text" name="fatherName" ng-model="parent.parent_name" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     

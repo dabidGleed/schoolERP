@@ -29,10 +29,10 @@ angular.module('school_erp')
             studentServices.setStudent(stdAdmission, $scope.classId)   
             .success(function(data, status){
                 $scope.addParent(data.id);
-                ngDialog.open({
-                template: '<p> Student Information  submitted successfully </p>',
-                plain: true
-                });
+                // ngDialog.open({
+                // template: '<p> Student Information  submitted successfully </p>',
+                // plain: true
+                // });
                 $scope.data = [];
                 
             })
@@ -55,7 +55,7 @@ angular.module('school_erp')
             studentServices.setParent(parentDetails,studentId)   
             .success(function(data, status){
                 ngDialog.open({
-                template: '<p> Parent Added successfully </p>',
+                template: '<p>Student Information  submitted successfully </p>',
                 plain: true
                 });
                 $scope.parent = [];
