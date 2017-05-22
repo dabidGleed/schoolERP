@@ -52,8 +52,9 @@
 <script src="app/app.js"></script> 
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper" ui-view></div>
+<body class="hold-transition" ng-class="loginPage? 'login-page' : 'skin-blue sidebar-mini'">
+
+<div ng-class="loginPage? 'login-box' : 'wrapper'" ui-view></div>
 <!-- ./wrapper -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
