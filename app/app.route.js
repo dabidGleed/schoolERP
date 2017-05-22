@@ -1,5 +1,10 @@
 angular.module('school_erp').config(function($stateProvider, $urlRouterProvider, $locationProvider) { 
     $stateProvider
+        .state('login', { // login Page
+            url: "/login",
+            templateUrl: "app/components/login/login.html",
+            controller: "loginController"   
+        })
         .state('main', {
             url: "/",
             views: {
@@ -118,6 +123,6 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
             url: "transport/routeGeolocation",
             templateUrl: "app/components/routeGeolocation/routeGeolocation.html"          
         });
-        $urlRouterProvider.otherwise("/dashboard");
+        $urlRouterProvider.otherwise("/login");
         
 });

@@ -68,12 +68,12 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Subjects</h3>
                 </div>
-              <form name="examPapers" ng-submit="addSubjects(data)" novalidate>
+              <form name="subjects" ng-submit="subjects.$valid && addSubjects(data)" novalidate>
                 <div class="row">
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': subjects.$submitted  && subjects.subjectName.$pristine}">
                         <label>Subject Name</label>
-                        <input type="text" class="form-control" ng-model="data.name" placeholder="Enter ...">
+                        <input type="text" name="subjectName" class="form-control" ng-model="data.name" placeholder="Enter ..." required>
                       </div>
                     </div>
                     <div class="col-md-4">

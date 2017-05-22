@@ -2,7 +2,7 @@ angular.module('school_erp')
 .controller("employeeDetailsController",['$http','$scope','employeeServices','ngDialog', function($http, $scope, employeeServices, ngDialog){
         $scope.employeeDetailsData = [];
         $scope.data = [];
-        $scope.today1 = '01/01/1975';
+        $scope.today1 = '01/01/1975';            
         $scope.addEmployee = function(data){
              var empDetails = {
                 name: $scope.data.name,

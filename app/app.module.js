@@ -1,5 +1,7 @@
-// 'ui.bootstrap'
-angular.module('school_erp', ['ui.router','720kb.datepicker', 'ngDialog']); // Setter
- // getter
+
+angular.module('school_erp', ['ui.router','720kb.datepicker', 'ngDialog'])
+.run(function ($rootScope, $state) {
+    $rootScope.loginPage = true;
+});
 
 

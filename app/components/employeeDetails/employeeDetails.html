@@ -21,34 +21,34 @@
           <h3 class="box-title">Employee Details</h3>
 
         </div>
-     <form name="employeeDetails" ng-submit="addEmployee(data)" novalidate>
+     <form name="employeeDetails" ng-submit="employeeDetails.$valid && addEmployee(data)" novalidate>
         <!-- /.box-header -->
         <div class="box-body">
-                <div class="row">
-                 
+                <div class="row">                 
                   <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': employeeDetails.$submitted && employeeDetails.firstname.$invalid && employeeDetails.firstname.$pristine}">
                       <label>First Name</label>
-                      <input type="text" ng-model="data.name" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.name" name="firstname" class="form-control" placeholder="Enter ..." required>
                     </div>
+                    
                   </div>
 
                   <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': employeeDetails.$submitted && employeeDetails.Surname.$invalid && employeeDetails.Surname.$pristine}">
                       <label>Surname Name</label>
-                      <input type="text" class="form-control" ng-model="data.surname" placeholder="Enter ...">
+                      <input type="text" class="form-control" name="Surname" ng-model="data.surname" placeholder="Enter ..." required>
                     </div>
                   </div>
                 </div>
                 
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': employeeDetails.$submitted && employeeDetails.emailValue.$invalid && employeeDetails.emailValue.$pristine}">
                       <label>Email</label>
-                      <input type="text" class="form-control" ng-model="data.email" placeholder="Enter ...">
+                      <input type="email" class="form-control" name="emailValue" ng-model="data.email" placeholder="Enter ..." required>
                     </div>
                   </div>
-                  
+                 
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Phone Number</label>
@@ -59,18 +59,18 @@
             
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': employeeDetails.$submitted && employeeDetails.dob.$invalid && employeeDetails.dob.$pristine}">
                       <label>Date of Birth</label>
                       <!--<input type="text" class="form-control pull-right" id="datepicker" ng-model="" placeholder="Select a Date ...">-->
                       <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
-                          <input class="form-control" name="startDate" type="text" ng-model="data.dob" ng-readonly="true" placeholder="Enter ..." required/>
+                          <input  class="form-control" name="dob" type="text" ng-model="data.dob" ng-readonly="true" placeholder="Enter ..." required/>
                       </datepicker>
                       </div>                    
                   </div>
                   <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': employeeDetails.$submitted && employeeDetails.gender.$invalid && employeeDetails.gender.$pristine}">
                       <label>Gender</label>
-                      <select class="form-control select2" style="width: 100%;" ng-model="data.gender">
+                      <select name="gender" class="form-control select2" style="width: 100%;" ng-model="data.gender" required>
                         <option selected="selected">--Select--</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -88,10 +88,10 @@
                   </div>
 
                   <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group"  ng-class="{'has-error': employeeDetails.$submitted && employeeDetails.doj.$invalid && employeeDetails.doj.$pristine}">
                       <label>Date of Joining</label>                   
                        <datepicker date-min-limit='today1' date-format="dd-MM-yyyy" style="z-index:999">
-                          <input class="form-control" name="startDate" type="text" ng-model="data.joined_on" ng-readonly="true" placeholder="Enter ..." required/>
+                          <input class="form-control"  name="doj" type="text" ng-model="data.joined_on" ng-readonly="true" placeholder="Enter ..." required/>
                       </datepicker>
                       </div>                    
                   </div>
@@ -127,9 +127,9 @@
             
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group"  ng-class="{'has-error': employeeDetails.$submitted && employeeDetails.academicQualification.$invalid && employeeDetails.academicQualification.$pristine}">
                       <label>Academic Qualification</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select name="academicQualification" class="form-control select2" ng-model="data.academicQualification" style="width: 100%;" required>
                         <option selected="selected">--Select--</option>
                         <option>Pre-Bachelors</option>
                         <option>Bachelors degree</option>
@@ -138,7 +138,7 @@
                       </select>
                     </div>
                   </div>
-
+                    
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Employee Photo</label>
@@ -149,7 +149,7 @@
         </div>
         
         <div class="box-footer">
-           <button type="submit" class="btn btn-primary pull-right">Submit</button>
+           <button ng-disabled="false" type="submit" class="btn btn-primary pull-right">Submit</button>
         </div>
 
 
