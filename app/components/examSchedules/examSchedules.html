@@ -82,18 +82,25 @@
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" ng-model="data.exam_classes" id="datepicker">
+                          <!--<input type="text" class="form-control pull-right" ng-model="data.exam_classes" id="datepicker">-->
+                           <datepicker  date-format="dd-MM-yyyy" style="z-index:999">
+                            <input class="form-control" name="startDate" type="text" ng-readonly="true"  ng-model="data.exam_classes" placeholder="Enter ..." required/>
+                          </datepicker>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label>End Date</label>
+                        <label>Due Date</label>
+                          
                         <div class="input-group date">
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" ng-model="data.from_date" id="datepicker">
+                          <!--<input type="text" class="form-control pull-right" ng-model="data.from_date" id="datepicker">-->
+                          <datepicker date-format="dd-MM-yyyy" style="z-index:999">
+                            <input class="form-control" name="startDate" type="text"  ng-model="data.from_date"  ng-readonly="true" placeholder="Enter ..." required/>
+                          </datepicker>
                         </div>
                       </div>
                     </div>
@@ -133,14 +140,12 @@
                   </thead>
                   <tbody>
                    <tr ng-repeat="exam in examData">
+                     <td>{{$index}}</td>
                     <td>{{exam.exam_title}}</td>
                     <td>{{exam.from_date}}</td>
-                    <td>{{exam.exam_id}}</td>  
-                    <td></td>
-                    <td>{{exam.time_from}}</td>
-                    <td>{{exam.time_from}}</td>
+                    <td>{{exam.exam_classes}}</td>  
                     <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
+                      <a href="" class="btn btn-default btn-xs" data-toggle="modal" ng-click="EditExamSchedule($index)" data-target="#myModal" title="Edit">
                         <i class="fa fa-pencil"></i>
                       </a>
                       <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
@@ -155,3 +160,70 @@
           </div>
         </div>
     </section>
+<!--Edit values modal Starts here-->
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        
+         <div class="modal-header">
+            <h3>Edit Schedule</h3>
+        </div>
+  <form name="examSchedule" ng-submit="EditExamSchedule(editdata)" novalidate>
+  
+        <div class="modal-body">
+       
+        <!-- /.box-header -->
+         <!-- /.box-header -->
+      
+                
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Examination Title</label>
+                        <input type="text" class="form-control" ng-model="editdata.exam_title" placeholder="Enter ...">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Start Date</label>
+                        <div class="input-group date">
+                          <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <!--<input type="text" class="form-control pull-right" ng-model="data.exam_classes" id="datepicker">-->
+                           <datepicker  date-format="dd-MM-yyyy" style="z-index:999">
+                            <input class="form-control" name="startDate" type="text" ng-readonly="true"  ng-model="editdata.exam_classes" placeholder="Enter ..." required/>
+                          </datepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Due Date</label>
+                          
+                        <div class="input-group date">
+                          <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <!--<input type="text" class="form-control pull-right" ng-model="data.from_date" id="datepicker">-->
+                          <datepicker date-format="dd-MM-yyyy" style="z-index:999">
+                            <input class="form-control" name="startDate" type="text"  ng-model="editdata.from_date"  ng-readonly="true" placeholder="Enter ..." required/>
+                          </datepicker>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                
+              </div>
+
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Edit Schedule</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+         </form>
+        </div>
+       
+    
+      </div>
+    </div>
+  </div>

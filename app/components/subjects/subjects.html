@@ -68,6 +68,104 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Subjects</h3>
                 </div>
+              <form name="examPapers" ng-submit="addSubjects(data)" novalidate>
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Subject Name</label>
+                        <input type="text" class="form-control" ng-model="data.name" placeholder="Enter ...">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Subject Code</label>
+                        <input type="text" class="form-control" ng-model="data.subject_id" placeholder="Enter ...">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="radio">
+                        <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1"  value="option1" checked="">
+                        Theory
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2"  value="option2">
+                        Practical
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                    <button type="submit" ng class="btn btn-primary pull-right">Add Subject</button>
+                    </div>                  
+                </div>
+                  </form>
+              </div>
+
+              
+            </div>
+    
+    <!-- /.content -->
+    
+    <!-- Content List -->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                  <i class="fa fa-th-list" aria-hidden="true"></i>
+                  <h3 class="box-title">Subject List</h3>
+            </div>
+          <div class="box-body">  
+            <div class="tab-content">
+              <div class="tab-pane table-responsive no-padding active" id="tab_1">
+                <table class="table table-striped">
+                  <thead>
+                   <tr>
+                    <th>#</th>
+                    <th>Subject Name</th>
+                    <th>Subject Code</th>
+                    <th>Subject Type</th>
+                    <th class="pull-right">Action</th>
+                   </tr>
+                  </thead>
+                  <tbody>
+                   <tr ng-repeat="subjects in subjectsData">
+                      <td>{{$index}}</td>
+                     <td>{{subjects.name}}</td>
+                      <td>{{subjects.subject_id}} </td>
+                      <td>{{subjects._id}}</td>
+                    <td class="pull-right">
+                      <a href="" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" title="Edit">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                      <a href="" class="btn btn-default btn-xs" title="Delete">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                   </tr>
+                 </tbody>
+                </table>
+              </div>                       
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+  
+ <!--Edit values modal Starts here-->
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <form name="employeeDetails" ng-submit="addEmployee(data)" novalidate>
+         <div class="modal-header">
+            <h3>Edit Subjects</h3>
+        </div>
+        <div class="modal-body">
+       
+        <!-- /.box-header -->
+         <!-- /.box-header -->
+         
                 
                 <div class="row">
                     <div class="col-md-4">
@@ -97,184 +195,12 @@
                       </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary pull-right">Add Subject</button>
-                    </div>                  
-                </div>
-              </div>
-
-              
-            </div>
-    
-    <!-- /.content -->
-    
-    <!-- Content List -->
-        <div class="box box-default">
-            <div class="box-header with-border">
-                  <i class="fa fa-th-list" aria-hidden="true"></i>
-                  <h3 class="box-title">Subject List</h3>
-            </div>
-          <div class="box-body">  
-            <div class="tab-content">
-              <div class="tab-pane table-responsive no-padding active" id="tab_1">
-                <table class="table table-striped">
-                  <thead>
-                   <tr>
-                    <th>#</th>
-                    <th>Subject Name</th>
-                    <th>Subject Code</th>
-                    <th>Subject Type</th>
-                    <th class="pull-right">Action</th>
-                   </tr>
-                  </thead>
-                  <tbody>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>Subject 1</td>
-                    <td>181990</td>
-                    <td>Theory</td>
-                    <td class="pull-right">
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Edit">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
-                    </td>
-                   </tr>
-                 </tbody>
-                </table>
-              </div>                       
-            </div>
-          </div>
         </div>
-    </section>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Add Subject</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+     </form>
+      </div>
+    </div>
   </div>
-  
