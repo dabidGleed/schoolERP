@@ -6,7 +6,7 @@
         <small>Chapters</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
         <li>Academics</li>
         <li class="active">Chapters</li>
       </ol>
@@ -89,19 +89,19 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Chapter Name</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text"  ng-model="editdata.title" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Chapter Code</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" ng-model="editdata.code" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Number of Topics</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" ng-model="editdata.no_of_topics" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Chapter Description</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" ng-model="editdata.description" rows="3" placeholder="Enter ..."></textarea>
                       </div>
                     </div>        
                 </div>
@@ -188,7 +188,7 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Chapter Name</label>
-                        <input type="text" ng-model="editdata.name" class="form-control" placeholder="Enter ...">
+                        <input type="text" ng-model="editdata.title" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -200,7 +200,7 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Number of Topics</label>
-                        <input type="text" ng-model="editdata.number of topics" class="form-control" placeholder="Enter ...">
+                        <input type="text" ng-model="editdata.no_of_topics" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Chapter Description</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" ng-model="editdata.description" rows="3" placeholder="Enter ..."></textarea>
                       </div>
                     </div>        
                 </div>

@@ -2,7 +2,8 @@ angular.module('school_erp')
 .controller("studentAdmissionController",['$http','$scope','studentServices', 'ngDialog', function($http, $scope, studentServices, ngDialog){
         $scope.classData = [];
         $scope.data = [];   
-        $scope.parent = [];   
+        $scope.parent = []; 
+        $scope.Studentaddress = [];  
         studentServices.getClass()
         .success(function(data, status){
             $scope.classData = data.school_classes;// Api list-name
@@ -47,12 +48,37 @@ angular.module('school_erp')
         
         $scope.addParent = function(studentId){
             var parentDetails = {
-                parent_name:$scope.parent.parent_name,
-                parent_contact:$scope.parent.parent_contact,
-                parent_relation:$scope.parent.parent_relation
+                parent_name:$scope.parent[0].parent_name,
+                parent_contact:$scope.parent[0].parent_contact,
+                parent_relation:$scope.parent[0].parent_relation
             }
             
             studentServices.setParent(parentDetails,studentId)   
+            .success(function(data, status){
+                // ngDialog.open({
+                // template: '<p>Student Information  submitted successfully </p>',
+                // plain: true
+                // });
+                $scope.parent = [];
+            })
+            .error(function(data,success){
+                 ngDialog.open({
+                template: '<p>Some Error Occured!</p>',
+                plain: true
+                });
+            })
+
+        }
+        
+        $scope.addStudentaddress = function(studentId){
+            var parentDetails = {
+               cur_address:$scope.Studentaddress.cur_address,
+               perm_address:$scope.Studentaddress.perm_address,
+               bus_route_id:$scope.Studentaddress.bus_route_id,
+               Aadhaar_no:$scope.Studentaddress.Aadhaar_no
+            }
+            
+            studentServices.setStudentaddress(Studentaddress,studentId)   
             .success(function(data, status){
                 ngDialog.open({
                 template: '<p>Student Information  submitted successfully </p>',
@@ -68,7 +94,5 @@ angular.module('school_erp')
             })
 
         }
-        
-      
 }])
 

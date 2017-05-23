@@ -6,7 +6,7 @@
         <small>Exam Papers</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
         <li>Examinations</li>
         <li class="active">Exam Papers</li>
       </ol>
@@ -86,7 +86,7 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Select Subject</label>
-                        <select class="form-control select2" style="width: 100%;">
+                        <select class="form-control select2" ng-model="data.exam_sch_id" style="width: 100%;">
                             <option selected="selected">--Select--</option>
                             <option>Subject 1</option>
                             <option>Subject 2</option>
@@ -108,7 +108,7 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Max Marks</label>
-                        <input type="text" class="form-control"   placeholder="Enter ...">
+                        <input type="text" class="form-control" ng-model="data.max_marks"  placeholder="Enter ...">
                       </div>
                     </div>
                     
@@ -132,7 +132,7 @@
                       <div class="form-group">
                         <label>Start Time</label>
                         <div class="input-group">
-                            <input type="text"  ng-model="data.time_from" class="form-control timepicker">
+                            <input type="text"  ng-model="data.satrt_time" class="form-control timepicker">
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
                             </div>
@@ -143,7 +143,7 @@
                       <div class="form-group">
                         <label>End Time</label>
                         <div class="input-group">
-                            <input type="text"  ng-model="data.time_to" class="form-control timepicker">
+                            <input type="text"  ng-model="data.end_time" class="form-control timepicker">
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
                             </div>
@@ -278,7 +278,7 @@
                       <div class="form-group">
                         <label>Start Time</label>
                         <div class="input-group">
-                            <input type="text"  ng-model="data.time_from" class="form-control timepicker">
+                            <input type="text"  ng-model="data.satrt_time" class="form-control timepicker">
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
                             </div>
@@ -289,7 +289,7 @@
                       <div class="form-group">
                         <label>End Time</label>
                         <div class="input-group">
-                            <input type="text"  ng-model="data.time_to" class="form-control timepicker">
+                            <input type="text"  ng-model="data.end_time" class="form-control timepicker">
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
                             </div>

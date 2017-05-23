@@ -1,9 +1,9 @@
 angular.module('school_erp')
-.controller("addBusController"['$http','$scope', function($http, $scope){
-        $scope.employeeData = [];
-        employeeServices.getEmployee()
+.controller("addBusRouteController"['$http','$scope', function($http, $scope){
+        $scope.addBusRoute = [];
+        employeeServices.getaddBusRoute()
         .success(function(data, status){
-            $scope.employeeData = data.employee;
+            $scope.addBusRoute = data.busRoute;
         })
         .error(function(data,success){
         })

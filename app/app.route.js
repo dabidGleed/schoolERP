@@ -1,5 +1,10 @@
 angular.module('school_erp').config(function($stateProvider, $urlRouterProvider, $locationProvider) { 
     $stateProvider
+        .state('login', { // login Page
+            url: "/login",
+            templateUrl: "app/components/login/login.html",
+            controller: "loginController"   
+        })
         .state('main', {
             url: "/",
             views: {
@@ -23,10 +28,10 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
             templateUrl: "app/components/student/student.html",
             controller: "studentController"       
         })
-        .state('main.studentDetails', { // login Page
-            url: "studentInfo/studentDetails",
-            templateUrl: "app/components/studentDetails/studentDetails.html"          
-        })
+        // .state('main.studentDetails', { // login Page
+        //     url: "studentInfo/studentDetails",
+        //     templateUrl: "app/components/studentDetails/studentDetails.html"          
+        // })
          .state('main.employee', { // login Page
             url: "employeeInfo/employee",
             templateUrl: "app/components/employee/employee.html",
@@ -118,6 +123,6 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
             url: "transport/routeGeolocation",
             templateUrl: "app/components/routeGeolocation/routeGeolocation.html"          
         });
-        $urlRouterProvider.otherwise("/dashboard");
+        $urlRouterProvider.otherwise("/login");
         
 });
