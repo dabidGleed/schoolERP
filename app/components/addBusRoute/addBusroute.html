@@ -59,7 +59,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Route</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select class="form-control select2" ng-model="data.route_id" style="width: 100%;">
                         <option selected="selected">--Select--</option>
                         <option>Route 1</option>
                         <option>Route 2</option>
@@ -75,7 +75,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Select a Station</label>
-                            <select class="form-control select2" style="width: 100%;">
+                            <select class="form-control select2"  ng-model="data.station_id" style="width: 100%;">
                                 <option selected="selected">--Select--</option>
                                 <option>Station 1</option>
                                 <option>Station 2</option>
@@ -91,7 +91,7 @@
                             <div class="form-group">
                                 <label>Pickup Time</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control timepicker">
+                                        <input type="text"  ng-model="data.pickup_time" class="form-control timepicker">
                                         <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>
                                         </div>
@@ -107,7 +107,7 @@
                             <div class="form-group">
                                 <label>Dropping Time</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control timepicker">
+                                        <input type="text"  ng-model="data.droping_time" class="form-control timepicker">
                                         <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>
                                         </div>
@@ -122,7 +122,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary pull-right">  Create Bus Route  </button>
+                            <button type="submit"  class="btn btn-primary pull-right">  Create Bus Route  </button>
                         </div>
                     </div>
                 </div>

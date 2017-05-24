@@ -28,10 +28,10 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
             templateUrl: "app/components/student/student.html",
             controller: "studentController"       
         })
-        .state('main.studentDetails', { // login Page
-            url: "studentInfo/studentDetails",
-            templateUrl: "app/components/studentDetails/studentDetails.html"          
-        })
+        // .state('main.studentDetails', { // login Page
+        //     url: "studentInfo/studentDetails",
+        //     templateUrl: "app/components/studentDetails/studentDetails.html"          
+        // })
          .state('main.employee', { // login Page
             url: "employeeInfo/employee",
             templateUrl: "app/components/employee/employee.html",
