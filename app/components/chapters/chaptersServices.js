@@ -1,15 +1,15 @@
 angular.module('school_erp')
-.factory('subjectsServices',['$http', 'globalServices', function($http, globalServices){
-    var subjectsServices = {};
+.factory('chaptersServices',['$http', 'globalServices', function($http, globalServices){
+    var chaptersServices = {};
 
-    subjectsServices.getSubjects = function(){
+    chaptersServices.getChapters = function(){
         return $http({
                     method: 'GET',
                     url: globalServices.globalValue.baseURL + 'api/subjects/SCH-9271-CL-1'
                 })
     };
 
-     subjectsServices.setSubjects = function(dataValue){
+     chaptersServices.setChapters = function(dataValue){
          console.log(dataValue);
         return $http({
                     method: 'POST',
@@ -18,5 +18,5 @@ angular.module('school_erp')
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })
       };
-       return subjectsServices;
+       return chaptersServices;
     }]);  
