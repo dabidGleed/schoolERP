@@ -89,13 +89,13 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Assignment Title</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" ng-model="assignmentsData.assignment_title" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Chapter</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select class="form-control select2" ng-model="assignmentsData.lesson_id" style="width: 100%;">
                         <option selected="selected">--Select--</option>
                         <option>Chapter 1</option>
                         <option>Chapter 2</option>
@@ -115,7 +115,7 @@
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" id="datepicker">
+                          <input type="text"  ng-model="assignmentsData.due_date" class="form-control pull-right" id="datepicker">
                         </div>
                       </div>
                     </div>
@@ -124,7 +124,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" ng-model="assignmentsData.description" rows="3" placeholder="Enter ..."></textarea>
                       </div>
                     </div>        
                 </div>

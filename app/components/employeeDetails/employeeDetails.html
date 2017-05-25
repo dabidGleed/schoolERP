@@ -28,15 +28,15 @@
                   <div class="col-md-6">
                     <div class="form-group" ng-class="{'has-error': employeeDetails.$submitted && employeeDetails.firstname.$invalid && employeeDetails.firstname.$pristine}">
                       <label>First Name</label>
-                      <input type="text" ng-model="data.name" name="firstname" class="form-control" placeholder="Enter ..." required>
+                      <input type="text" ng-model="data.first_name" name="firstname" class="form-control" placeholder="Enter ..." required>
                     </div>
                     
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group" ng-class="{'has-error': employeeDetails.$submitted && employeeDetails.Surname.$invalid && employeeDetails.Surname.$pristine}">
-                      <label>Surname Name</label>
-                      <input type="text" class="form-control" name="Surname" ng-model="data.surname" placeholder="Enter ..." required>
+                      <label>Last Name</label>
+                      <input type="text" class="form-control" name="Surname" ng-model="data.last_name" placeholder="Enter ..." required>
                     </div>
                   </div>
                 </div>
@@ -142,7 +142,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Employee Photo</label>
-                      <input type="file" name="first_doc" id="doc1">
+                      <input type="file" ng-model="data.profile_image" name="first_doc" id="doc1">
                       </div>                    
                   </div>
                 </div>

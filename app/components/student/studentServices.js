@@ -33,6 +33,14 @@ angular.module('school_erp')
                 })
       };
 
+       studentServices.setStudentaddress = function(Studentaddress,studentId){       
+        return $http({
+                    method: 'POST',
+                    url: globalServices.globalValue.baseURL + 'api/add_parent/'+studentId,
+                    data: $.param(Studentaddress),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+                })
+      };
       return studentServices;
 
 }]);
