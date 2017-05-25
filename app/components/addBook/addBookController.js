@@ -1,5 +1,5 @@
 angular.module('school_erp')
-.controller("addBookController",['$http','$scope','addBookServices', function($http, $scope, addBookServices){
+.controller("addBookController",['$http','$scope','addBookServices','ngDialog', function($http, $scope, addBookServices, ngDialog){
         $scope.data = [];
          $scope.addBook= function(data){
              var bookDetails = {
