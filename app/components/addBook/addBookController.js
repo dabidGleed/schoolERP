@@ -19,7 +19,7 @@ angular.module('school_erp')
                 template: '<p>Books are Added Successfully.</p>',
                 plain: true
                 });
-                $scope.examData = [];
+                $scope.data = [];
                 $scope.getBook();
             })
             .error(function(data,success){
