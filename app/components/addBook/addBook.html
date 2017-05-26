@@ -21,6 +21,7 @@
                 <i class="fa fa-th-list" aria-hidden="true"></i>
                 <h3 class="box-title">Add Book</h3>
             </div>
+            <form name="Book" ng-submit="Book.$valid && addBook(data)" novalidate>
             <div class="box-body">  
               <div class="row">
                   <div class="col-md-6">
@@ -91,6 +92,7 @@
                     </div> 
               </div>
             </div>
+            </form>
         </div>
     </section>
  

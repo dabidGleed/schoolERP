@@ -115,7 +115,7 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Religion</label>
-                      <input type="text" ng-model="data.job_category" class="form-control" placeholder="Enter ...">
+                      <input type="text"  class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                     
@@ -164,21 +164,21 @@
                     <div class="col-md-4">
                       <div class="form-group"  ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.fatherName.$pristine}">
                         <label>Father Name</label>
-                        <input type="text" name="fatherName" ng-model="parent[0].parent_name" class="form-control" placeholder="Enter ...">
+                        <input type="text" name="fatherName" ng-model="data.father_name" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Father Phone</label>
-                        <input type="text"  ng-model="parent[0].parent_contact" class="form-control" placeholder="Enter ...">
+                        <input type="text"  ng-model="data.father_contact" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Father Occupation</label>
-                        <input type="text" ng-model="parent[0].occupation" class="form-control" placeholder="Enter ...">
+                        <input type="text" ng-model="data.father_occupation" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                 </div>
@@ -187,21 +187,21 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Mother Name</label>
-                        <input type="text" ng-model="parent[1].parent_name" class="form-control" placeholder="Enter ...">
+                        <input type="text" ng-model="data.mother_name" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Mother Phone</label>
-                        <input type="text" ng-model="parent[1].Parent_contact" class="form-control" placeholder="Enter ...">
+                        <input type="text" ng-model="data.mother_contact" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Mother Occupation</label>
-                        <input type="text"  ng-model="parent[1].occupation" class="form-control" placeholder="Enter ...">
+                        <input type="text"  ng-model="data.mother_occupation" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                 </div>
@@ -212,14 +212,14 @@
                         <div class="col-md-6">
                          <div class="form-group">
                             <label>Guardian Name</label>
-                            <input type="text"  ng-model="parent[2].parent_name" class="form-control" placeholder="Enter ...">
+                            <input type="text"  ng-model="data.gaurdian_name" class="form-control" placeholder="Enter ...">
                          </div>
                         </div>
                     
                         <div class="col-md-6">
                          <div class="form-group">
                             <label>Guardian Relation</label>
-                            <input type="text"  ng-model="parent[2].Parent_relation" class="form-control" placeholder="Enter ...">
+                            <input type="text"  ng-model="data.gaurdian_contact" class="form-control" placeholder="Enter ...">
                          </div>
                         </div>
                       </div>
@@ -228,14 +228,14 @@
                         <div class="col-md-6">
                          <div class="form-group">
                             <label>Guardian Phone</label>
-                            <input type="text" ng-model="parent[2].Parent_contact" class="form-control" placeholder="Enter ...">
+                            <input type="text" ng-model="data.gaurdian_relation" class="form-control" placeholder="Enter ...">
                          </div>
                         </div>
                     
                         <div class="col-md-6">
                          <div class="form-group">
                             <label>Guardian Occupation</label>
-                            <input type="text" ng-model="parent[2].occupation" class="form-control" placeholder="Enter ...">
+                            <input type="text" ng-model="data.gaurdian_occupation" class="form-control" placeholder="Enter ...">
                          </div>
                         </div>
                       </div>   
@@ -245,7 +245,7 @@
                     <div class="col-md-6">
                          <div class="form-group">
                              <label>Guardian Address</label>
-                             <textarea class="form-control" ng-model="parent.Pareent_address" rows="3" placeholder="Enter ..."></textarea> 
+                             <textarea class="form-control" ng-model="data.gaurdian_address" rows="3" placeholder="Enter ..."></textarea> 
                         </div>
                     </div>
                 </div>

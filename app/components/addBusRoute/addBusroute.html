@@ -28,21 +28,21 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Route Title</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.route_title" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Vehicle Code</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.vehicle_code" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                     
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Vehicle Number</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.vehicle_number" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                 </div>
@@ -158,11 +158,11 @@
                   <tbody>
                   
                     
-                    <tr>
-                      <td class="mailbox-name"> 8.</td>
-                      <td class="mailbox-name"> Beach Road</td>
-                      <td class="mailbox-name"> AP31 A1801</td>
-                      <td class="mailbox-name"> A1801</td>                        
+                    <tr ng-repeat="busRoute in busRoutes">
+                       <td class="mailbox-name"> {{$index+1}}</td> 
+                      <td class="mailbox-name"> {{busRoute.route_title}}</td>
+                      <td class="mailbox-name"> {{busRoute.vehicle_number}}</td>
+                      <td class="mailbox-name"> {{busRoute.vehicle_code}}</td>                       
                       <td class="mailbox-date pull-right">                    
                         <a href="" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" title="" data-original-title="Edit">
                             <i class="fa fa-pencil"></i>
