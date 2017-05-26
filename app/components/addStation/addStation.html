@@ -16,7 +16,7 @@
     <!-- Main content -->
     <section class="content">
       <!-- Select Criteria -->
-
+        <form name="adddStations" ng-submit="addStation(data)" novalidate>
             <div class="box box-default">
               <div class="box-header with-border">
                   <h3 class="box-title">Create Station</h3>
@@ -27,21 +27,21 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Station Name</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.station_name" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Station Code</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.station_code" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Station Geo-Location</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.station_geo_location" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
 
@@ -52,7 +52,7 @@
                   <button type="submit" class="btn btn-primary pull-right">Add Station</button>
               </div>
             </div>
-    
+        </form>
     <!-- /.content -->
     
     <!-- Content List -->
@@ -80,10 +80,11 @@
                     </tr>
                   </thead>
                   <tbody>  
-                    <tr>
-                      <td class="mailbox-name"> 8.</td>
-                      <td class="mailbox-name"> Seethammadhara</td>
-                      <td class="mailbox-name"> 1801</td>                      
+                    <tr ng-repeat="station in data">
+                      <td class="mailbox-name"> {{$index+1}}</td>
+                      <td class="mailbox-name"> {{station.station_name}}</td>
+                      <td class="mailbox-name"> {{station.station_code}}</td>
+                                            
                       <td class="mailbox-date pull-right">                    
                         <a href="" class="btn btn-default btn-xs"  data-toggle="modal" data-target="#myModal" title="" data-original-title="Edit">
                             <i class="fa fa-pencil"></i>

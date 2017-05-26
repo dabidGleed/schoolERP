@@ -1,25 +1,25 @@
 angular.module('school_erp')
-.factory('addBusRouteServices',['$http', 'globalServices', function($http, globalServices){
-    var addBusRouteServices = {};
+.factory('BusRouteServices',['$http', 'globalServices', function($http, globalServices){
+    var BusRouteServices = {};
 
-    addBusRouteServices.getBusRoute = function(){
+    BusRouteServices.getBusRoute = function(){
         return $http({
                     method: 'GET',
-                    url: globalServices.globalValue.baseURL + '/api/book/'
+                    url: globalServices.globalValue.baseURL + 'api/bus_route/SCH-9271'
                 })
     };
 
-     addBusRouteServices.setBusRoute = function(dataValue){
+     BusRouteServices.setBusRoute = function(dataValue){
          console.log(dataValue);
         return $http({
                     method: 'POST',
-                    url: globalServices.globalValue.baseURL + '/api/book/',
+                    url: globalServices.globalValue.baseURL + 'api/bus_route/SCH-9271',
                     data: $.param(dataValue),
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })
       };
 
-   addBusRouteServices.EditBusRoute = function(dataValue){
+   BusRouteServices.EditBusRoute = function(dataValue){
             console.log(dataValue);
             return $http({
                         method: 'EDIT',
@@ -29,5 +29,5 @@ angular.module('school_erp')
                     })
         };
 
-       return addBusRouteServices;
+       return BusRouteServices;
     }]);  

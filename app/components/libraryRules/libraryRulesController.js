@@ -1,7 +1,7 @@
 angular.module('school_erp')
 .controller("libraryRulesController",['$http','$scope', function($http, $scope){
         $scope.libraryRules = [];
-               $scope.getlibraryRules= function(){
+            $scope.getlibraryRules= function(){
              examServices.getlibraryRules()
             .success(function(data, status){
                 $scope.libraryData = data.boo;
@@ -27,7 +27,7 @@ angular.module('school_erp')
                 template: '<p>ExamSchedules are Added Successfully.</p>',
                 plain: true
                 });
-                $scope.examData = [];
+                $scope.data = [];
                 $scope.getlibraryRules();
             })
             .error(function(data,success){
