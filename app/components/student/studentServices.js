@@ -41,6 +41,16 @@ angular.module('school_erp')
     //                 headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
     //             })
     //   };
+
+    studentServices.setAttendance = function(dataValue, classToAdd){       
+        return $http({
+                    method: 'POST',
+                    url: globalServices.globalValue.baseURL + 'api/attendance/GH-83dh/5-2-2017/morning',
+                    data: $.param(dataValue),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
+                })
+      };
+
       return studentServices;
 
 }]);
