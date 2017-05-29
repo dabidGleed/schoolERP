@@ -1,7 +1,30 @@
 angular.module('school_erp')
-.controller("examSchedulesController",['$http','$scope','examServices','ngDialog', function($http, $scope, examServices,ngDialog){
+.controller("examSchedulesController",['$http','$scope','examServices','ngDialog', 'globalServices', function($http, $scope, examServices,ngDialog, globalServices){
         $scope.examData = [];
           $scope.today1 = '01/01/1975';
+
+
+        globalServices.getClass()
+        .success(function(data, status){
+            $scope.classData = data.school_classes;// Api list-name
+            $scope.classId = $scope.classData[0].class_id;
+            $scope.populateSections($scope.classId)
+            
+        })
+        .error(function(data,success){
+        })
+
+        $scope.populateSections = function(classId){
+            globalServices.getSections(classId)
+            .success(function(data, status){
+                $scope.secData = data.class_sections;// Api list-name
+                $scope.secId = $scope.secData[0].section_id;
+                $scope.getStudentValue($scope.secId);
+            })
+            .error(function(data,success){
+            })
+        }
+
 
         $scope.getExamScheduleData = function(){
              examServices.getExamSchedule()

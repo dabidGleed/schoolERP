@@ -111,283 +111,40 @@
                     <th>Employee Id</th>
                     <th>Name</th>
                     <th>Attendance</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                   
                    </tr>
                   </thead>
                  <tbody>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
+                   <tr ng-repeat="employee in employeeData">
+                    <td>{{$index+1}}</td>
+                    <td>{{employee.employee_id}}</td>
+                    <td>{{employee.first_name}} {{employee.last_name}}</td>
+                   
                     <td>
+                      
                         <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
+                             <input ng-change="addAttendance(employee,attend)" type="radio" ng-model="attend" value="Present" id="attendencetype+{{$index}}" name="attendencetype+{{$index}}">
                             <label for="inlineRadio1"> Present </label>
                         </div>
                         <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
+                          <input ng-change="addAttendance(employee,attend)" type="radio" ng-model="attend" value="Late with excuse" name="attendencetype+{{$index}}">
                             <label for="inlineRadio1"> Late with excuse </label>
                         </div>
                         <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
+                          <input ng-change="addAttendance(student,attend)" type="radio" ng-model="attend" value="Late" name="attendencetype+{{$index}}">
                             <label for="inlineRadio1"> Late </label>
                         </div>
                         <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
+                              <input ng-change="addAttendance(student,attend)" type="radio" ng-model="attend" value="Absent" name="attendencetype+{{$index}}">
                             <label for="inlineRadio1"> Absent </label>
                         </div>
                         <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
+                            <input ng-change="addAttendance(student,attend)" type="radio" ng-model="attend" value="On Leave" name="attendencetype+{{$index}}">
                             <label for="inlineRadio1"> On Leave </label>
                         </div>
                     </td>
                    </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
-                    <td>
-                        <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
-                            <label for="inlineRadio1"> Present </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
-                            <label for="inlineRadio1"> Late with excuse </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
-                            <label for="inlineRadio1"> Late </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
-                            <label for="inlineRadio1"> Absent </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
-                            <label for="inlineRadio1"> On Leave </label>
-                        </div>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
-                    <td>
-                        <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
-                            <label for="inlineRadio1"> Present </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
-                            <label for="inlineRadio1"> Late with excuse </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
-                            <label for="inlineRadio1"> Late </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
-                            <label for="inlineRadio1"> Absent </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
-                            <label for="inlineRadio1"> On Leave </label>
-                        </div>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
-                    <td>
-                        <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
-                            <label for="inlineRadio1"> Present </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
-                            <label for="inlineRadio1"> Late with excuse </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
-                            <label for="inlineRadio1"> Late </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
-                            <label for="inlineRadio1"> Absent </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
-                            <label for="inlineRadio1"> On Leave </label>
-                        </div>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
-                    <td>
-                        <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
-                            <label for="inlineRadio1"> Present </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
-                            <label for="inlineRadio1"> Late with excuse </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
-                            <label for="inlineRadio1"> Late </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
-                            <label for="inlineRadio1"> Absent </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
-                            <label for="inlineRadio1"> On Leave </label>
-                        </div>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
-                    <td>
-                        <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
-                            <label for="inlineRadio1"> Present </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
-                            <label for="inlineRadio1"> Late with excuse </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
-                            <label for="inlineRadio1"> Late </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
-                            <label for="inlineRadio1"> Absent </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
-                            <label for="inlineRadio1"> On Leave </label>
-                        </div>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
-                    <td>
-                        <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
-                            <label for="inlineRadio1"> Present </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
-                            <label for="inlineRadio1"> Late with excuse </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
-                            <label for="inlineRadio1"> Late </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
-                            <label for="inlineRadio1"> Absent </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
-                            <label for="inlineRadio1"> On Leave </label>
-                        </div>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
-                    <td>
-                        <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
-                            <label for="inlineRadio1"> Present </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
-                            <label for="inlineRadio1"> Late with excuse </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
-                            <label for="inlineRadio1"> Late </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
-                            <label for="inlineRadio1"> Absent </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
-                            <label for="inlineRadio1"> On Leave </label>
-                        </div>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
-                    <td>
-                        <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
-                            <label for="inlineRadio1"> Present </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
-                            <label for="inlineRadio1"> Late with excuse </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
-                            <label for="inlineRadio1"> Late </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
-                            <label for="inlineRadio1"> Absent </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
-                            <label for="inlineRadio1"> On Leave </label>
-                        </div>
-                    </td>
-                   </tr>
-                   <tr>
-                    <td>1</td>
-                    <td>17002</td>
-                    <td>Rahul Prasad</td>
-                    <td>
-                        <div class="radio radio-info radio-inline">
-                            <input checked type="radio" id="attendencetype22" value="1" name="attendencetype22">
-                            <label for="inlineRadio1"> Present </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="2" name="attendencetype22">
-                            <label for="inlineRadio1"> Late with excuse </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="3" name="attendencetype22">
-                            <label for="inlineRadio1"> Late </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="4" name="attendencetype22">
-                            <label for="inlineRadio1"> Absent </label>
-                        </div>
-                        <div class="radio radio-info radio-inline">
-                            <input type="radio" id="attendencetype22" value="5" name="attendencetype22">
-                            <label for="inlineRadio1"> On Leave </label>
-                        </div>
-                    </td>
-                   </tr>
+                  
                   
                  </tbody>
                 </table>
