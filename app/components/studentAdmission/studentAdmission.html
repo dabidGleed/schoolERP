@@ -25,37 +25,36 @@
         <div class="box-body">
          
                 <div class="row">
-                  <!--<div class="col-md-3">
+                  <div class="col-md-3">
                     <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted && studentAdmission.admissionNo.$invalid && studentAdmission.admissionNo.$pristine}">
                       <label>Admission No</label>
                       <input type="text" name="admissionNo" ng-model="data.admissionNo" class="form-control" placeholder="Enter ..." required>
                     </div>
-                  </div>-->
+                  </div>
 
-                  <!--<div class="col-md-3">
+                 <div class="col-md-3">
                     <div class="form-group">
                       <label>Roll No</label>
                       <input type="text" class="form-control" placeholder="Enter ...">
                     </div>
-                  </div>-->
+                  </div>
                     
-                  <div class="col-md-6">  
+                  <div class="col-md-3">  
                     <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.class.$pristine}">
                       <label>Class</label>
-                      <select name="class" class="form-control select2" style="width: 100%;" ng-model="classId">
+                      <select name="class" class="form-control select2"  data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
                         <option selected="selected">--Select--</option>
                         <option ng-repeat="class in classData" value="{{class.class_id}}">{{class.name}}</option>
                       </select>
                     </div>
                   </div>
                   
-                  <div class="col-md-6">
-                    <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.section.$pristine}">
+                  <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.section.$pristine }">
                       <label>Section</label>
-                      <select name="section"  class="form-control select2" ng-model="data.section" style="width: 100%;">
-                        <option selected="selected">--Select--</option>
-                        <option>Section A</option>
-                        <option>Section B</option>
+                     <select class="form-control select2" name="section" style="width: 100%;" ng-model="secId">
+                       <option selected="selected">--Select--</option>
+                        <option ng-repeat="sec in secData" value="{{sec.section_id}}">{{sec.name}}</option>
                       </select>
                     </div>
                   </div>
@@ -282,12 +281,9 @@
                 <div class="form-group">
                     <label>School Bus Route</label>
                     <select class="form-control select2"  ng-model="data.bus_route_id" style="width: 100%;">
-                        <option selected="selected">--Select--</option>
-                        <option>Route 1</option>
-                        <option>Route 2</option>
-                        <option>Route 3</option>
-                        <option>Route 4</option>
-                        <option>None</option>
+                       <option selected="">--Select--</option>
+                       <option ng-repeat="route in routes" value="{{route.route_id}}">{{class.route_title}}</option>
+                       
                     </select>
                 </div>
             </div>

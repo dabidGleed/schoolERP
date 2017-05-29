@@ -2,28 +2,24 @@ angular.module('school_erp')
 .factory('studentServices',['$http', 'globalServices', function($http, globalServices){
     var studentServices = {};
 
-    studentServices.getStudent = function(classValue){
+    studentServices.getStudent = function(classSecValue){
         return $http({
                     method: 'GET',
-                    url: globalServices.globalValue.baseURL + 'api/students/SCH-9271-CL-1-SEC-1'
+                    url: globalServices.globalValue.baseURL + 'api/students/'+classSecValue
                 })
     };
 
-     studentServices.setStudent = function(dataValue, classToAdd){       
+
+     studentServices.setStudent = function(dataValue, classSecToAdd){       
         return $http({
                     method: 'POST',
-                    url: globalServices.globalValue.baseURL + 'api/students/SCH-9271-CL-1-SEC-1',
+                    url: globalServices.globalValue.baseURL + 'api/students/'+classSecToAdd,
                     data: $.param(dataValue),
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
                 })
       };
 
-       studentServices.getClass = function(){
-        return $http({
-                    method: 'GET',
-                    url: globalServices.globalValue.baseURL + 'api/school_classes/SCH-9271'
-                })
-    };
+     
     //   studentServices.setParent = function(parentDetails,studentId){       
     //     return $http({
     //                 method: 'POST',
