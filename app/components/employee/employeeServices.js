@@ -19,6 +19,19 @@ angular.module('school_erp')
                 })
       };
 
+
+   employeeService.setAttendance = function(dataValue,Attendance){
+         console.log(dataValue);
+        return $http({
+                    method: 'POST',
+                    url: globalServices.globalValue.baseURL + 'api/employee_attendance/'+Attendance,
+                    data: $.param(dataValue),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+                })
+      };
+
+      
+
       return employeeService;
 
 }]);

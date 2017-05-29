@@ -1,13 +1,31 @@
 angular.module('school_erp')
-.controller("studentAdmissionController",['$http','$scope','studentServices', 'ngDialog', function($http, $scope, studentServices, ngDialog){
+.controller("studentAdmissionController",['$http','$scope','studentServices', 'ngDialog','globalServices', function($http, $scope, studentServices, ngDialog, globalServices){
         $scope.classData = [];
         $scope.data = [];     
-        studentServices.getClass()
+
+         globalServices.getClass()
         .success(function(data, status){
             $scope.classData = data.school_classes;// Api list-name
+            $scope.classId = $scope.classData[0].class_id;
+            $scope.populateSections($scope.classId)
+            
         })
         .error(function(data,success){
         })
+
+        $scope.populateSections = function(classId){
+            globalServices.getSections(classId)
+            .success(function(data, status){
+                $scope.secData = data.class_sections;// Api list-name
+                $scope.secId = $scope.secData[0].section_id;
+                $scope.getStudentValue($scope.secId);
+            })
+            .error(function(data,success){
+            })
+        }
+
+
+       
 
         $scope.addStudent = function(data){
              var stdAdmission = {
@@ -50,7 +68,7 @@ angular.module('school_erp')
                 gaurdian_occupation: $scope.data.gaurdian_occupation
              }
            
-            studentServices.setStudent(stdAdmission, $scope.classId)   
+            studentServices.setStudent(stdAdmission, $scope.secId)   
             .success(function(data, status){
                 // $scope.addParent(data.id);
                 ngDialog.open({

@@ -44,11 +44,13 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
         .state('main.employeeAttendance', { // login Page
             url: "employeeInfo/employeeAttendance",
-            templateUrl: "app/components/employeeAttendance/employeeAttendance.html"          
+            templateUrl: "app/components/employeeAttendance/employeeAttendance.html",
+            controller:"employeeAttendanceController"          
         })
          .state('main.studentAttendance', { // login Page
             url: "attendance/studentAttendance",
-            templateUrl: "app/components/studentAttendance/studentAttendance.html"          
+            templateUrl: "app/components/studentAttendance/studentAttendance.html",
+            controller:"studentAttendanceController"
         })
         .state('main.subjects', { // login Page
             url: "academics/subjects",

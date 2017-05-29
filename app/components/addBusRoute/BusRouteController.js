@@ -1,9 +1,6 @@
 angular.module('school_erp')
-.controller("BusRouteController"['$http','$scope','BusRouteServices','ngDialog', function($http, $scope, BusRouteServices, ngDialog){
+.controller("BusRouteController", ['$http','$scope','BusRouteServices','ngDialog', function($http, $scope, BusRouteServices, ngDialog){
         $scope.busRoutes = [];
-
-        console.log("Happy me");
-
         BusRouteServices.getBusRoute()
         .success(function(data, status){
             $scope.busRoutes = data.bus_routes;
@@ -12,7 +9,7 @@ angular.module('school_erp')
         })
     
     
-       $scope.addBusRoute= function(data){
+       $scope.addBusRoute = function(data){
                 var StationDetails = {
                     route_title:$scope.data.route_title,
                     vehicle_code:$scope.data.vehicle_code, 
