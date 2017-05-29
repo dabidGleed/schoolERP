@@ -41,11 +41,19 @@ angular.module('school_erp')
     studentServices.setAttendance = function(dataValue, classToAdd){       
         return $http({
                     method: 'POST',
-                    url: globalServices.globalValue.baseURL + 'api/attendance/GH-83dh/5-2-2017/morning',
+                    url: globalServices.globalValue.baseURL + 'api/attendance/' + classToAdd,
                     data: $.param(dataValue),
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
                 })
       };
+
+       studentServices.getStudents = function(classSecValue){
+        return $http({
+                    method: 'GET',
+                    url: globalServices.globalValue.baseURL + 'api/students/'+classSecValue
+                })
+    };
+
 
       return studentServices;
 

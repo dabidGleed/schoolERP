@@ -1,30 +1,50 @@
 angular.module('school_erp')
-.controller("studentAttendanceController",['$http','$scope','studentServices', function($http, $scope, studentServices){
+.controller("studentAttendanceController",['$http','$scope','studentServices','globalServices','ngDialog', function($http, $scope, studentServices, globalServices, ngDialog){
         $scope.studentData = [];
-        studentServices.getAttendance()
+        $scope.classDatanew = [];
+
+        globalServices.getClass()
         .success(function(data, status){
-            $scope.studentData = data.attendance;
+            $scope.classDatanew = data.school_classes;// Api list-name
+            $scope.classId = $scope.classDatanew[0].class_id;
+            $scope.populateSections($scope.classId);            
         })
         .error(function(data,success){
         })
 
+         $scope.populateSections = function(classId){
+            globalServices.getSections(classId)
+            .success(function(data, status){
+                $scope.secData = data.class_sections;// Api list-name
+                $scope.secId = $scope.secData[0].section_id;
+                $scope.getStudents($scope.secId);
+            })
+            .error(function(data,success){
+            })
+        }
 
+        $scope.getStudents = function(classSecValue){
 
-        
-        $scope.addAttendance = function(data){
-             var stdAdmission = {
-                class_id: $scope.data.class_id,
-                section_id: $scope.data.section_id,
-                session: $scope.data.session,
-                status:  $scope.data.status
-    
+            studentServices.getStudents(classSecValue)
+            .success(function(data, status){
+                $scope.studentData = data.students;
+            })
+            .error(function(data,success){
+            })
+        }
+        $scope.addAttendance = function(studentVal, status){
+             var Attendance = {
+                class_id: $scope.classId,
+                section_id: $scope.secId,
+                session: "morning",
+                status: status    
              }
            
-            studentServices.setAttendance(ASttendance, $scope.classId)   
+            studentServices.setAttendance(Attendance, studentVal.student_id)
             .success(function(data, status){
                 
                 ngDialog.open({
-                template: '<p> Student Information  submitted successfully </p>',
+                template: '<p> Student Attendance  submitted successfully </p>',
                 plain: true
                 });
                 $scope.data = [];

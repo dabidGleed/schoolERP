@@ -10,3 +10,12 @@
 .has-error .errorText{
     display: block;
 }
+
+.radio.radio-info.radio-inline{
+    margin-top: 0px;
+    
+}
+ .radio label{
+     padding-left: 0px;
+     padding-right: 20px;
+ }
