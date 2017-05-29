@@ -5,7 +5,7 @@ angular.module('school_erp')
     addBookServices.getBook = function(){
         return $http({
                     method: 'GET',
-                    url: globalServices.globalValue.baseURL + '/api/book/'
+                    url: globalServices.globalValue.baseURL + '/api/book/SCH-9271'
                 })
     };
 
@@ -13,7 +13,7 @@ angular.module('school_erp')
          console.log(dataValue);
         return $http({
                     method: 'POST',
-                    url: globalServices.globalValue.baseURL + '/api/book/',
+                    url: globalServices.globalValue.baseURL + '/api/book/SCH-9271',
                     data: $.param(dataValue),
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })
