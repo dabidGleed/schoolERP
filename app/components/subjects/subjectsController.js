@@ -47,7 +47,7 @@ angular.module('school_erp')
                 plain: true
                 });
                 $scope.data = [];
-                $scope.getSubjects();
+                $scope.getSubjects($scope.secId);
             })
             .error(function(data,success){
                 ngDialog.open({
