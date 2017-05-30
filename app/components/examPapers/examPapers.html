@@ -44,11 +44,11 @@
                       </select>
                     </div>
                   </div>
-                  
+                
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Exam Schedule</label>
-                      <select class="form-control select2" style="width: 100%;" ng-model="examScheduleId">
+                      <select data-ng-change="populateExams()" class="form-control select2" style="width: 100%;" ng-model="examScheduleId">
                         <option selected="selected">--Select--</option>
                         <option ng-repeat="exam in examSchedule " value="{{exam.exam_sch_id}}">{{exam.exam_title}}</option>
         
@@ -67,34 +67,27 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Exam Paper</h3>
                 </div>
-                  <form name="examPapers" ng-submit="addExamPapers(data)" novalidate>
+                  <form name="examPapers" ng-submit="examPapers.$valid && addExamPapers(data)" novalidate>
                 <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label>Select Subject</label>
-                        <select class="form-control select2" ng-model="data.exam_sch_id" style="width: 100%;">
+                        <label>Select Subject</label>                       
+                        <select data-ng-change="populateExams()" class="form-control select2" ng-model="subjectId" style="width: 100%;">
                             <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
+                            <option ng-repeat="subject in subjectsData" value="{{subject.subject_id}}">{{subject.name}}</option>
                         </select>
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': examPapers.$submitted && examPapers.paperTitle.$invalid && examPapers.paperTitle.$pristine}">
                         <label>Paper Title</label>
-                        <input type="text" class="form-control"  ng-model="data.exam_paper_title" placeholder="Enter ...">
+                        <input type="text" class="form-control" name="paperTitle" ng-model="data.exam_paper_title" placeholder="Enter ..." required>
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': examPapers.$submitted && examPapers.maxmarks.$invalid && examPapers.maxmarks.$pristine}">
                         <label>Max Marks</label>
-                        <input type="text" class="form-control" ng-model="data.max_marks"  placeholder="Enter ...">
+                        <input type="text" class="form-control" name="maxmarks" ng-model="data.max_marks"  placeholder="Enter ..." required>
                       </div>
                     </div>
                     
@@ -102,23 +95,23 @@
                   
                 <div class="row">
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': examPapers.$submitted && examPapers.examDate.$invalid && examPapers.examDate.$pristine}">
                         <label>Exam Date</label>
                         <div class="input-group date">
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
                            <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
-                             <input class="form-control" name="startDate" type="text" ng-model="data.date" ng-readonly="true" placeholder="Enter ..." required/>
+                             <input class="form-control" name="examDate" type="text" ng-model="data.date" ng-readonly="true" placeholder="Enter ..." required/>
                            </datepicker> 
                         </div>
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': examPapers.$submitted && examPapers.startTime.$invalid && examPapers.startTime.$pristine}">
                         <label>Start Time</label>
                         <div class="input-group">
-                            <input type="text"  ng-model="data.satrt_time" class="form-control timepicker">
+                            <input type="text" name="startTime" ng-model="data.satrt_time" class="form-control timepicker" required>
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
                             </div>
@@ -126,10 +119,10 @@
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': examPapers.$submitted && examPapers.endTime.$invalid && examPapers.endTime.$pristine}">
                         <label>End Time</label>
                         <div class="input-group">
-                            <input type="text"  ng-model="data.end_time" class="form-control timepicker">
+                            <input type="text" name="endTime" ng-model="data.end_time" class="form-control timepicker" required>
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
                             </div>

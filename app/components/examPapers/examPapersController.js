@@ -1,5 +1,5 @@
 angular.module('school_erp')
-.controller("examPapersController",['$http','$scope','examServices', 'ngDialog' , 'globalServices' ,function($http, $scope, examServices, ngDialog, globalServices){
+.controller("examPapersController",['$http','$scope','examServices', 'ngDialog' , 'globalServices' ,'subjectsServices' ,function($http, $scope, examServices, ngDialog, globalServices, subjectsServices){
         $scope.examData = [];
 
 
@@ -17,25 +17,29 @@ angular.module('school_erp')
             .success(function(data, status){
                 $scope.secData = data.class_sections;// Api list-name
                 $scope.secId = $scope.secData[0].section_id;
-                $scope.getStudents($scope.secId);
+                $scope.getSubjects($scope.secId);
+                
             })
             .error(function(data,success){
             })
         }
 
-
+        $scope.populateExams= function() {
+            $scope.getExamPapers($scope.subjectId, $scope.examScheduleId);
+        }
         examServices.getExamSchedule()
         .success(function(data, status){
             $scope.examSchedule = data.exam_schedules;// Api list-name
+            $scope.examScheduleId = $scope.examSchedule[0].exam_sch_id;
         })
         .error(function(data,success){
         })
 
 
-        $scope.getExamPapers = function(){
-             examServices.getExamPapers()
+        $scope.getExamPapers = function(examSubject, exSchedule){
+         examServices.getExamPapers(examSubject, exSchedule)
         .success(function(data, status){
-            $scope.examData = data['SCH-9271-EXM_SCH-39-SCH-9271-CL-11-SUB-3'];
+            $scope.examData = data[exSchedule+'-'+examSubject];
         })
         .error(function(data,success){
         });
@@ -47,14 +51,14 @@ angular.module('school_erp')
                time_from: $scope.data.time_from,
                time_to:$scope.data.time_to
              }
-            examServices.setExamPapers(examDetails)   
+            examServices.setExamPapers(examDetails, $scope.subjectId, $scope.examScheduleId)   
             .success(function(data, status){
                 ngDialog.open({
                 template: '<p>ExamPapers are Added Successfully.</p>',
                 plain: true
                 });
                 $scope.data = [];
-                $scope.getExamPapers();
+                $scope.getExamPapers($scope.subjectId, $scope.examScheduleId);
             })
             .error(function(data,success){
                 ngDialog.open({
@@ -65,8 +69,18 @@ angular.module('school_erp')
            
         }
 
-        $scope.getExamPapers();
-       
+         $scope.getSubjects = function(secId){
+            subjectsServices.getSubjects(secId)
+            .success(function(data, status){
+                $scope.subjectsData = data.subjects;
+                $scope.subjectId = $scope.subjectsData[0].subject_id;
+                $scope.getExamPapers($scope.subjectId, $scope.examScheduleId);
+            })
+            .error(function(data,success){
+            });
+        }
+
+              
        
 }])
 
