@@ -9,6 +9,7 @@ angular.module('school_erp')
                 })
     };
 
+    
      BusRouteServices.setBusRoute = function(dataValue){
          console.log(dataValue);
         return $http({
@@ -19,11 +20,29 @@ angular.module('school_erp')
                 })
       };
 
+       BusRouteServices.getTime = function( routeId,stationId){
+        return $http({
+                    method: 'GET',
+                    url: globalServices.globalValue.baseURL + 'api/station_to_bus_route/'+routeId +'/'+ stationId,
+                })
+    };
+
+    
+     BusRouteServices.setTime = function(dataValue, routeId,stationId){
+         console.log(dataValue);
+        return $http({
+                    method: 'POST',
+                    url: globalServices.globalValue.baseURL + 'api/station_to_bus_route/'+routeId +'/'+ stationId,
+                    data: $.param(dataValue),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+                })
+      };
+
    BusRouteServices.EditBusRoute = function(dataValue){
             console.log(dataValue);
             return $http({
                         method: 'EDIT',
-                        url: globalServices.globalValue.baseURL + '/book_edit/:book_id/:name/:value',
+                        url: globalServices.globalValue.baseURL + '',
                         data: $.param(dataValue),
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                     })

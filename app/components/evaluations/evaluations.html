@@ -231,12 +231,13 @@
         <div class="modal-body">
        
         <!-- /.box-header -->
-         <!-- /.box-header -->    
+         <!-- /.box-header -->  
+               <form name="evaluations" ng-submit="evaluations.$valid && addEvaluations(data)" novalidate>    
                 <div class="row">
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group"  ng-class="{'has-error': evaluations.$submitted  && evaluations.marksObtained.$pristine}">
                         <label>Marks obtained</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input name="marksObtained" type="text" class="form-control" placeholder="Enter ..." required>
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -267,7 +268,7 @@
                 <button type="submit" class="btn btn-primary">Add Marks</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               </div>
-        
+        </form>
         </div>
        
      </form>

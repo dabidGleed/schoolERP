@@ -65,12 +65,12 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Assignments</h3>
                 </div>
-                <form ng-submit="addAssignments(data)"> 
+                <form name="Assignments" ng-submit="Assignments.$valid && aaddAssignments(data)" novalidate> 
                 <div class="row">
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': Assignments.$submitted  && Assignments.assignmentTitle.$pristine}">
                         <label>Assignment Title</label>
-                        <input type="text" ng-model="data.assignment_title" class="form-control" placeholder="Enter ...">
+                        <input type="text" name="assignmentTitle" ng-model="data.assignment_title" class="form-control" placeholder="Enter ..." required>
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -86,20 +86,23 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Due Date</label>
-                        <div class="input-group date">
+                        <div class="input-group date" ng-class="{'has-error': Assignments.$submitted  && Assignments.dueDate.$pristine}">
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text"  ng-model="data.due_date" class="form-control pull-right" id="datepicker">
+                          <!--<input type="text"  ng-model="data.due_date" class="form-control pull-right" id="datepicker">-->
+                           <datepicker date-set="{{today1}}" date-set-hidden="true" date-format="dd-MM-yyyy" style="z-index:999">
+                          <input  class="form-control" name="dueDate" type="text" ng-model="data.due_date" ng-readonly="true" placeholder="Enter ..." required/>
+                      </datepicker>
                         </div>
                       </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                      <div class="form-group">
+                      <div class="form-group"  ng-class="{'has-error': Assignments.$submitted  && Assignments.description.$pristine}">
                         <label>Description</label>
-                        <textarea class="form-control" ng-model="data.description" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" name="description" ng-model="data.description" rows="3" placeholder="Enter ..." required></textarea>
                       </div>
                     </div>        
                 </div>
