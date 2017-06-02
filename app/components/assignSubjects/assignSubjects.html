@@ -25,34 +25,23 @@
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="row">
-                  <div class="col-md-5">
+                     <div class="col-md-5">
                     <div class="form-group">
                       <label>Select Class</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select class="form-control select2"  data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
                         <option selected="selected">--Select--</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                       <option ng-repeat="class in classDatanew" value="{{class.class_id}}">{{class.name}}</option>
                       </select>
                     </div>
                   </div>
 
                   <div class="col-md-5">
                     <div class="form-group">
-                      <label>Class</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <label>Select Section</label>
+                      <select class="form-control select2" style="width: 100%;" ng-model="secId">
                         <option selected="selected">--Select--</option>
-                        <option>Section A</option>
-                        <option>Section B</option>
-                        <option>Section C</option>
-                        <option>Section D</option>
+                       <option ng-repeat="sec in secData" value="{{sec.section_id}}">{{sec.name}}</option>
+                        
                       </select>
                     </div>
                   </div>
@@ -68,7 +57,7 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Assign Subjects</h3>
                 </div>
-                
+                <form ng-submit="addTeacher()">
                 <div class="row">
                     <div class="col-md-5">
                       <div class="form-group">
@@ -84,312 +73,18 @@
                 <div class="row">
                     <div class="col-md-5">
                       <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
+                           <select  class="form-control select2"  style="width: 100%;"  ng-model="subjectId">
                             <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
+                            <option ng-repeat="subject in subjectsData" value="{{subject.subject_id}}">{{subject.name}}</option>
+
                           </select>
                       </div>
                     </div>
                     <div class="col-md-5">
                       <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
+                          <select class="form-control select2" style="width: 100%;"  ng-model="teachId">
                             <option selected="selected">--Select--</option>
-                            <option>Teacher 1</option>
-                            <option>Teacher 2</option>
-                            <option>Teacher 3</option>
-                            <option>Teacher 4</option>
-                            <option>Teacher 5</option>
-                            <option>Teacher 6</option>
-                            <option>Teacher 7</option>
-                            <option>Teacher 8</option>
-                            <option>None</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Teacher 1</option>
-                            <option>Teacher 2</option>
-                            <option>Teacher 3</option>
-                            <option>Teacher 4</option>
-                            <option>Teacher 5</option>
-                            <option>Teacher 6</option>
-                            <option>Teacher 7</option>
-                            <option>Teacher 8</option>
-                            <option>None</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Teacher 1</option>
-                            <option>Teacher 2</option>
-                            <option>Teacher 3</option>
-                            <option>Teacher 4</option>
-                            <option>Teacher 5</option>
-                            <option>Teacher 6</option>
-                            <option>Teacher 7</option>
-                            <option>Teacher 8</option>
-                            <option>None</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Teacher 1</option>
-                            <option>Teacher 2</option>
-                            <option>Teacher 3</option>
-                            <option>Teacher 4</option>
-                            <option>Teacher 5</option>
-                            <option>Teacher 6</option>
-                            <option>Teacher 7</option>
-                            <option>Teacher 8</option>
-                            <option>None</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Teacher 1</option>
-                            <option>Teacher 2</option>
-                            <option>Teacher 3</option>
-                            <option>Teacher 4</option>
-                            <option>Teacher 5</option>
-                            <option>Teacher 6</option>
-                            <option>Teacher 7</option>
-                            <option>Teacher 8</option>
-                            <option>None</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Teacher 1</option>
-                            <option>Teacher 2</option>
-                            <option>Teacher 3</option>
-                            <option>Teacher 4</option>
-                            <option>Teacher 5</option>
-                            <option>Teacher 6</option>
-                            <option>Teacher 7</option>
-                            <option>Teacher 8</option>
-                            <option>None</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Teacher 1</option>
-                            <option>Teacher 2</option>
-                            <option>Teacher 3</option>
-                            <option>Teacher 4</option>
-                            <option>Teacher 5</option>
-                            <option>Teacher 6</option>
-                            <option>Teacher 7</option>
-                            <option>Teacher 8</option>
-                            <option>None</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                      <div class="form-group">
-                          <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">--Select--</option>
-                            <option>Teacher 1</option>
-                            <option>Teacher 2</option>
-                            <option>Teacher 3</option>
-                            <option>Teacher 4</option>
-                            <option>Teacher 5</option>
-                            <option>Teacher 6</option>
-                            <option>Teacher 7</option>
-                            <option>Teacher 8</option>
-                            <option>None</option>
+                             <option ng-repeat="teacher in employeeData" value="{{teacher.teacher_id}}">{{teacher.name}}</option>
                           </select>
                       </div>
                     </div>
@@ -402,11 +97,6 @@
                     </div>
                 </div>
                 
-                <div class="row">
-                    <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary pull-right">Assign</button>
-                    </div>                  
-                </div>
               </div>
 
               

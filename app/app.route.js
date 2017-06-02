@@ -64,7 +64,8 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
         .state('main.assignSubjects', { // login Page
             url: "academics/assignSubjects",
-            templateUrl: "app/components/assignSubjects/assignSubjects.html"          
+            templateUrl: "app/components/assignSubjects/assignSubjects.html",
+            controller:"assignSbjectsController"          
         })
          .state('main.assignments', { // login Page
             url: "academics/assignments",
