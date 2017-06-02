@@ -39,7 +39,7 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Class</label>
-                      <select class="form-control select2" style="width: 100%;" ng-model="classId">
+                      <select class="form-control select2" data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
                         <option selected="selected">--Select--</option>
                         <option ng-repeat="class in classData" value="{{class.class_id}}">{{class.name}}</option>
                       </select>
@@ -49,10 +49,9 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Section</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">--Select--</option>
-                        <option>Section A</option>
-                        <option>Section B</option>
+                      <select class="form-control select2" style="width: 100%;" ng-model="secId">
+                       <option selected="selected">--Select--</option>
+                        <option ng-repeat="sec in secData" value="{{sec.section_id}}">{{sec.name}}</option>
                       </select>
                     </div>
                   </div>
@@ -68,7 +67,7 @@
               </div>
 
               <div class="box-footer">
-                  <button ng-click="getStudentValue()" class="btn btn-primary pull-right">Search</button>
+                  <button ng-click="getStudentValue(secId)" class="btn btn-primary pull-right">Search</button>
               </div>
             </div>
     
@@ -104,12 +103,12 @@
                  <tbody>
                    <tr ng-repeat="student in studentData | filter:searchstudent">
                     <td>{{student.student_id}}</td>
-                    <td><a href="">{{student.student_name}} {{student.student_surname}}</a></td>
+                    <td><a href="">{{student.first_name}} {{student.last_name}}</a></td>
                     <td>{{student.class_id}}</td>
                     <td>{{student.parents[0].parent_name}}</td>
                     <td>{{student.dob}}</td>
-                    <td>Male</td>
-                    <td>Category</td>
+                    <td>{{student.gender}}</td>
+                    <td>{{student.category}}</td>
                     <td>{{student.phone}}</td>
                     <td>yes</td>
                     <td class="pull-right">

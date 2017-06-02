@@ -24,7 +24,7 @@ angular.module('school_erp')
                 template: '<p>ExamSchedules are Added Successfully.</p>',
                 plain: true
                 });
-                $scope.examData = [];
+                $scope.data = [];
                 $scope.getExamScheduleData();
             })
             .error(function(data,success){

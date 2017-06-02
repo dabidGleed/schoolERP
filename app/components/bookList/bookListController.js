@@ -1,11 +1,15 @@
 angular.module('school_erp')
-.controller("bookListController",['$http','$scope', function($http, $scope){
-        $scope.employeeData = [];
-        employeeServices.getEmployee()
+.controller("bookListController",['$http','$scope','addBookServices', function($http, $scope, addBookServices){
+        $scope.data = [];
+        addBookServices.getBook()
         .success(function(data, status){
-            $scope.employeeData = data.employee;
+            $scope.data = data.books;
         })
         .error(function(data,success){
         })
+
+        $scope.EditBook = function(value){
+        $scope.editdata = angular.copy($scope.data[value]);
+    }
 }])
 

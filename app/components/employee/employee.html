@@ -92,11 +92,12 @@
                    <tr>
                     <th>Employee Id</th>
                     <th>Employee name</th>
+                    <th>Gender</th>
                     <th>Job Category</th>
                     <th>Experience</th>
                     <th>Joining Date</th>
                     <th>Email</th>
-                    <th>Website</th>
+                    <!--<th>Website</th>-->
                     <th>Mobile No</th>
                     <th>School Id</th>
                     <th class="pull-right">Action</th>
@@ -105,12 +106,13 @@
                  <tbody>
                    <tr ng-repeat="employee in employeeData | filter:searchEmp">
                     <td>{{employee.employee_id}}</td>
-                    <td><a href="">{{employee.name}} {{employee.surname}}</a></td>
+                    <td><a href="">{{employee.first_name}} {{employee.last_name }}</a></td>
+                    <td>{{employee.gender}}</td>
                     <td>{{employee.job_category}}</td>
                     <td>{{employee.experience}}</td>
                     <td>{{employee.joined_on}}</td>
                     <td>{{employee.email}}</td>
-                    <td>{{employee.website}}</td>
+                    <!--<td>{{employee.website}}</td>-->
                     <td>{{employee.phone}}</td>
                     <td>{{employee.school_id}}</td>
                     <td class="pull-right">
@@ -133,7 +135,7 @@
  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
-        <form name="employeeDetails" ng-submit="addEmployee(data)" novalidate>
+        <form name="employeeDetails" ng-submit="Employee(data)" novalidate>
          <div class="modal-header">
             <h3>Edit Employee</h3>
         </div>

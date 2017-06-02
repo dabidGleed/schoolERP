@@ -106,19 +106,22 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         .state('main.addBook', { // login Page
             url: "library/addBook",
             templateUrl: "app/components/addBook/addBook.html",
-            controller: "addBookController"          
+            controller: "addBookController"
         })
          .state('main.bookList', { // login Page
             url: "library/bookList",
-            templateUrl: "app/components/bookList/bookList.html"          
+            templateUrl: "app/components/bookList/bookList.html",
+             controller:"bookListController"          
         })
           .state('main.addStation', { // login Page
             url: "transport/addStation",
-            templateUrl: "app/components/addStation/addStation.html"          
+            templateUrl: "app/components/addStation/addStation.html",
+            controller:"addStationController"         
         })
          .state('main.addBusRoute', { // login Page
             url: "transport/addBusRoute",
-            templateUrl: "app/components/addBusRoute/addBusRoute.html"          
+            templateUrl: "app/components/addBusRoute/addBusRoute.html",
+            controller:"BusRouteController"          
         })
          .state('main.routeGeolocation', { // login Page
             url: "transport/routeGeolocation",

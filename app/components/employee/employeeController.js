@@ -9,7 +9,7 @@ angular.module('school_erp')
         .error(function(data,success){
         })
     $scope.EditEmployee = function(value){
-        $scope.editdata = $scope.employeeData[value];
+        $scope.editdata = angular.copy($scope.employeeData[value]);
     }
 }])
 
