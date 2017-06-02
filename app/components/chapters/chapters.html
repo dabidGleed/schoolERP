@@ -67,32 +67,32 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Chapters</h3>
                 </div>
-                <form name="chapters" ng-submit="addChapters(data)" novalidate>   
+                <form name="chapters" ng-submit="chapters.$valid && addChapters(data)" novalidate>   
                 <div class="row">
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': chapters.$submitted  && chapters.chapterName.$pristine}">
                         <label>Chapter Name</label>
-                        <input type="text"  ng-model="data.title" class="form-control" placeholder="Enter ...">
+                        <input type="text" name="chapterName" ng-model="data.title" class="form-control" placeholder="Enter ..." required>
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group"  ng-class="{'has-error': chapters.$submitted  && chapters.chapterCode.$pristine}">
                         <label>Chapter Code</label>
-                        <input type="text" ng-model="data.code" class="form-control" placeholder="Enter ...">
+                        <input name="chapterCode" type="text" ng-model="data.code" class="form-control" placeholder="Enter ..." required>
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': chapters.$submitted  && chapters.NumOfTopics.$pristine}">
                         <label>Number of Topics</label>
-                        <input type="text" ng-model="data.no_of_topics" class="form-control" placeholder="Enter ...">
+                        <input name="NumOfTopics" type="text" ng-model="data.no_of_topics" class="form-control" placeholder="Enter ..." required>
                       </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': chapters.$submitted  && chapters.chapterDescription.$pristine}">
                         <label>Chapter Description</label>
-                        <textarea class="form-control" ng-model="data.description" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea name="chapterDescription" class="form-control" ng-model="data.description" rows="3" placeholder="Enter ..." required></textarea>
                       </div>
                     </div>        
                 </div>

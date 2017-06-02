@@ -38,6 +38,24 @@ angular.module('school_erp')
                 })
       };
 
+
+        examServices.getEvaluation = function(examPaper,student){
+            console.log(examPaper+'/'+student);
+        return $http({
+                    method: 'GET',
+                    url: globalServices.globalValue.baseURL + 'api/exam_eval/'+examPaper+'/'+student
+                })
+    };
+     examServices.setEvaluation = function(dataValue, examPaper, student){
+         console.log(dataValue);
+        return $http({
+                    method: 'POST',
+                    url: globalServices.globalValue.baseURL + 'api/exam_eval/'+examPaper+'/'+student,
+                    data: $.param(dataValue),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+                })
+      };
+
         examServices.EditExamSchedule = function(dataValue){
          console.log(dataValue);
         return $http({

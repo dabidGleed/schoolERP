@@ -16,33 +16,35 @@
     <!-- Main content -->
     <section class="content">
       <!-- Select Criteria -->
+      
       <div class="box box-default">
         <div class="box-header with-border">
           
           <h3 class="box-title">Create Bus Route</h3>
 
         </div>
-          
+           
         <div class="box-body">
+              <form name="BusRoute" ng-submit="BusRoute.$valid && addBusRoute(data)" novalidate>
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': BusRoute.$submitted  && BusRoute.routeTitle.$pristine}">
                       <label>Route Title</label>
-                      <input type="text" ng-model="data.route_title" class="form-control" placeholder="Enter ...">
+                      <input name="routeTitle" type="text" ng-model="data.route_title" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
 
                   <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': BusRoute.$submitted  && BusRoute.vehicleCode.$pristine}">
                       <label>Vehicle Code</label>
-                      <input type="text" ng-model="data.vehicle_code" class="form-control" placeholder="Enter ...">
+                      <input name="vehicleCode" type="text" ng-model="data.vehicle_code" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                     
                   <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': BusRoute.$submitted  && BusRoute.vehicleNumber.$pristine}">
                       <label>Vehicle Number</label>
-                      <input type="text" ng-model="data.vehicle_number" class="form-control" placeholder="Enter ...">
+                      <input name="vehicleNumber" type="text" ng-model="data.vehicle_number" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                 </div>
@@ -54,18 +56,16 @@
                         </div>
                     </div>
                 </div>
-            
+              </form>
+              <form  ng-submit="addTime(data)" >
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Route</label>
-                      <select class="form-control select2" ng-model="data.route_id" style="width: 100%;">
+                      <select class="form-control select2" ng-model="routeId" style="width: 100%;">
                         <option selected="selected">--Select--</option>
-                        <option>Route 1</option>
-                        <option>Route 2</option>
-                        <option>Route 3</option>
-                        <option>Route 4</option>
-                        <option>Route 5</option>
+                         <option ng-repeat="route in busRoutes " value="{{route.route_id}}">{{route.route_title}}</option>
+                        
                       </select>
                     </div>
                   </div>
@@ -75,13 +75,11 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Select a Station</label>
-                            <select class="form-control select2"  ng-model="data.station_id" style="width: 100%;">
+                            <select class="form-control select2"  ng-model="stationId" style="width: 100%;">
                                 <option selected="selected">--Select--</option>
-                                <option>Station 1</option>
-                                <option>Station 2</option>
-                                <option>Station 3</option>
-                                <option>Station 4</option>
-                                <option>Station 5</option>
+                                <option ng-repeat="station in stations " value="{{station.station_id}}">{{station.station_name}}</option>
+                        
+                              
                             </select>    
                         </div>
                     </div>
@@ -126,8 +124,9 @@
                         </div>
                     </div>
                 </div>
+              </form>
         </div>
-              
+          
     <!-- /.content -->
     
     <!-- Content List -->
