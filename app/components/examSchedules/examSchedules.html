@@ -28,18 +28,9 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Class</label>
-                      <select class="form-control select2" style="width: 100%;">
+                       <select name="class" class="form-control select2"  data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
                         <option selected="selected">--Select--</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                        <option ng-repeat="class in classData" value="{{class.class_id}}">{{class.name}}</option>
                       </select>
                     </div>
                   </div>
@@ -47,12 +38,9 @@
                   <div class="col-md-4">
                     <div class="form-group" >
                       <label>Select Section</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">--Select--</option>
-                        <option>Section A</option>
-                        <option>Section B</option>
-                        <option>Section C</option>
-                        <option>Section D</option>
+                       <select class="form-control select2" name="section" style="width: 100%;" ng-model="secId">
+                       <option selected="selected">--Select--</option>
+                        <option ng-repeat="sec in secData" value="{{sec.section_id}}">{{sec.name}}</option>
                       </select>
                     </div>
                   </div>

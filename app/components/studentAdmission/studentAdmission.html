@@ -161,9 +161,9 @@
         <div class="box-body">
                 <div class="row">
                     <div class="col-md-4">
-                      <div class="form-group"  ng-class="{'has-error': studentAdmission.$submitted  && studentAdmission.fatherName.$pristine}">
+                      <div class="form-group"  >
                         <label>Father Name</label>
-                        <input type="text" name="fatherName" ng-model="data.father_name" class="form-control" placeholder="Enter ...">
+                        <input type="text"  ng-model="data.father_name" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     
@@ -280,9 +280,9 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>School Bus Route</label>
-                    <select class="form-control select2"  ng-model="data.bus_route_id" style="width: 100%;">
+                    <select class="form-control select2"  ng-model="routeId" style="width: 100%;">
                        <option selected="">--Select--</option>
-                       <option ng-repeat="route in routes" value="{{route.route_id}}">{{class.route_title}}</option>
+                       <option ng-repeat="route in busRoutes" value="{{route.bus_route_id}}">{{route.bus_route_id}}</option>
                        
                     </select>
                 </div>

@@ -18,17 +18,39 @@ angular.module('school_erp')
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })
       };
-        examServices.getExamPapers = function(){
+
+
+      
+      examServices.getExamPapers = function(examSubject, exSchedule){
+            console.log(examSubject+'/'+exSchedule);
         return $http({
                     method: 'GET',
-                    url: globalServices.globalValue.baseURL + 'api/exams/SCH-9271-CL-11-SUB-3/SCH-9271-EXM_SCH-39'
+                    url: globalServices.globalValue.baseURL + 'api/exams/'+examSubject+'/'+exSchedule
                 })
     };
-     examServices.setExamPapers = function(dataValue){
+     examServices.setExamPapers = function(dataValue, examSubject, exSchedule){
          console.log(dataValue);
         return $http({
                     method: 'POST',
-                    url: globalServices.globalValue.baseURL + 'api/exams/SCH-9271-CL-11-SUB-3/SCH-9271-EXM_SCH-39',
+                    url: globalServices.globalValue.baseURL + 'api/exams/'+examSubject+'/'+exSchedule,
+                    data: $.param(dataValue),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+                })
+      };
+
+
+        examServices.getEvaluation = function(examPaper,student){
+            console.log(examPaper+'/'+student);
+        return $http({
+                    method: 'GET',
+                    url: globalServices.globalValue.baseURL + 'api/exam_eval/'+examPaper+'/'+student
+                })
+    };
+     examServices.setEvaluation = function(dataValue, examPaper, student){
+         console.log(dataValue);
+        return $http({
+                    method: 'POST',
+                    url: globalServices.globalValue.baseURL + 'api/exam_eval/'+examPaper+'/'+student,
                     data: $.param(dataValue),
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })

@@ -3,9 +3,10 @@ angular.module('school_erp')
         $scope.employeeData = [];
         employeeServices.getEmployee()
         .success(function(data, status){
-            $scope.employeeData = data.employee;
+            $scope.data = data.employee;
         })
         .error(function(data,success){
         })
+
 }])
 
