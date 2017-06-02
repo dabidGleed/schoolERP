@@ -28,18 +28,9 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Class</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select class="form-control select2"  data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
                         <option selected="selected">--Select--</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                       <option ng-repeat="class in classDatanew" value="{{class.class_id}}">{{class.name}}</option>
                       </select>
                     </div>
                   </div>
@@ -47,12 +38,10 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Section</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select class="form-control select2" style="width: 100%;" ng-model="secId">
                         <option selected="selected">--Select--</option>
-                        <option>Section A</option>
-                        <option>Section B</option>
-                        <option>Section C</option>
-                        <option>Section D</option>
+                       <option ng-repeat="sec in secData" value="{{sec.section_id}}">{{sec.name}}</option>
+                        
                       </select>
                     </div>
                   </div>
@@ -60,12 +49,10 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Exam Schedule</label>
-                      <select class="form-control select2" style="width: 100%;">
+                      <select class="form-control select2" style="width: 100%;" ng-model="examScheduleId">
                         <option selected="selected">--Select--</option>
-                        <option>Examination 1</option>
-                        <option>Examination 2</option>
-                        <option>Examination 3</option>
-                        <option>Examination 4</option>
+                        <option ng-repeat="exam in examSchedule " value="{{exam.exam_sch_id}}">{{exam.exam_title}}</option>
+                        
                       </select>
                     </div>
                   </div>
@@ -73,44 +60,29 @@
                   <div class="col-md-4">
                       <div class="form-group">
                         <label>Select Subject</label>
-                        <select class="form-control select2" style="width: 100%;">
+                        <select  ng-change="getEvaluation(paperId ,studentId)" class="form-control select2" data-ng-change="populatePapers(subjectId)" style="width: 100%;"  ng-model="subjectId">
                             <option selected="selected">--Select--</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                            <option>Subject 4</option>
-                            <option>Subject 5</option>
-                            <option>Subject 6</option>
-                            <option>Subject 7</option>
-                            <option>Subject 8</option>
+                             <option ng-repeat="subject in subjectsData" value="{{subject.subject_id}}">{{subject.name}}</option>
                         </select>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Paper Title</label>
-                        <select class="form-control select2" style="width: 100%;">
+                        <select  ng-change="getEvaluation(paperId ,studentId)" class="form-control select2" style="width: 100%;" ng-model="paperId">
                             <option selected="selected">--Select--</option>
-                            <option>Paper 1</option>
-                            <option>Paper 2</option>
+                            <option ng-repeat="paper in papers " value="{{paper.exam_paper_id}}">{{paper.exam_paper_title}}</option>
+                            
                         </select>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Select Student</label>
-                        <select class="form-control select2" style="width: 100%;">
+                        <select ng-change="getEvaluation(paperId ,studentId)" class="form-control select2" style="width: 100%;" ng-model="studentId">
                             <option selected="selected">--Select--</option>
-                            <option>Student 1</option>
-                            <option>Student 2</option>
-                            <option>Student 3</option>
-                            <option>Student 4</option>
-                            <option>Student 5</option>
-                            <option>Student 6</option>
-                            <option>Student 7</option>
-                            <option>Student 8</option>
-                            <option>Student 9</option>
-                            <option>Student 10</option>
+      
+                            <option ng-repeat="student in students " value="{{student.student_id}}">{{student.first_name}} {{student.last_name}}</option>
                         </select>
                       </div>
                     </div>
@@ -126,24 +98,24 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Marks</h3>
                 </div>
-                  
+                  <form name="evaluations" ng-submit="evaluations.$valid && addEvaluation(data)" novalidate>
                 <div class="row">
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group"  ng-class="{'has-error': evaluations.$submitted  && evaluations.marksObtained.$pristine}">
                         <label>Marks obtained</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input name="marksObtained" type="text" ng-model="data.marks" class="form-control" placeholder="Enter ..." required>
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group" ng-class="{'has-error': evaluations.$submitted  && evaluations.marksPercentage.$pristine}">
                         <label>Marks Percentage</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input name="marksPercentage" type="text"  ng-model="data.percentage" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="form-group">
+                      <div class="form-group"  ng-class="{'has-error': evaluations.$submitted  && evaluations.conduct.$pristine}">
                         <label>Conduct</label>
-                        <select class="form-control select2" style="width: 100%;">
+                        <select name="conduct" ng-model="data.conduct" class="form-control select2" style="width: 100%;">
                             <option selected="selected">--Select--</option>
                             <option>Poor</option>
                             <option>Below Average</option>
@@ -162,6 +134,7 @@
                         <button type="submit" class="btn btn-primary pull-right">Add Marks</button>
                     </div> 
                 </div>
+                  </form>
               </div>
 
               
@@ -193,15 +166,15 @@
                    </tr>
                   </thead>
                   <tbody>
-                   <tr >
-                    <td>10</td>
-                    <td>Student Name</td>
-                    <td>Examination Title</td>
-                    <td>Subject</td>
-                    <td>Paper Title</td>
-                    <td>70</td>
-                    <td>70 %</td>
-                    <td>Good</td>
+                   <tr ng-repeat="evaluations in evalData" >
+                    <td>{{$index+1}}</td>
+                    <td>{{evaluations.student_id}}</td>
+                    <td>{{evaluations.exam_paper_id}}</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>{{evaluations.marks}}</td>
+                    <td>{{evaluations.percentage}}</td>
+                    <td>{{evaluations.conduct}}</td>
                     <td class="pull-right">
                       <a href="" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" title="Edit">
                         <i class="fa fa-pencil"></i>

@@ -25,26 +25,26 @@
         </div>
            
         <div class="box-body">
-              <form name="BusRoute" ng-submit="addBusRoute(data)" novalidate>
+              <form name="BusRoute" ng-submit="BusRoute.$valid && addBusRoute(data)" novalidate>
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': BusRoute.$submitted  && BusRoute.routeTitle.$pristine}">
                       <label>Route Title</label>
-                      <input type="text" ng-model="data.route_title" class="form-control" placeholder="Enter ...">
+                      <input name="routeTitle" type="text" ng-model="data.route_title" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
 
                   <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': BusRoute.$submitted  && BusRoute.vehicleCode.$pristine}">
                       <label>Vehicle Code</label>
-                      <input type="text" ng-model="data.vehicle_code" class="form-control" placeholder="Enter ...">
+                      <input name="vehicleCode" type="text" ng-model="data.vehicle_code" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                     
                   <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': BusRoute.$submitted  && BusRoute.vehicleNumber.$pristine}">
                       <label>Vehicle Number</label>
-                      <input type="text" ng-model="data.vehicle_number" class="form-control" placeholder="Enter ...">
+                      <input name="vehicleNumber" type="text" ng-model="data.vehicle_number" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
                 </div>
