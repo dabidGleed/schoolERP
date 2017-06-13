@@ -91,5 +91,8 @@ angular.module('school_erp')
            
         }
 
+              $scope.showRole = function(role){            
+            return globalServices.fetchRoleAuth(role);
+        } 
 }])
 

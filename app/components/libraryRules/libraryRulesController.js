@@ -70,6 +70,9 @@ angular.module('school_erp')
         }
         $scope.getlibraryRules();
 
+            $scope.showRole = function(role){            
+            return globalServices.fetchRoleAuth(role);
+        }
 }])
 
 

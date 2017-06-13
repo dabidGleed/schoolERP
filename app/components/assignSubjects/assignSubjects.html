@@ -18,14 +18,16 @@
       <!-- Select Criteria -->
 
             <div class="box box-default">
-              <div class="box-header with-border">
+              <div class="box-header with-border" ng-if="showRole(['admin','teacher'])">
                   <i class="fa fa-search" aria-hidden="true"></i> 
                   <h3 class="box-title">Select Criteria</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="row">
-                     <div class="col-md-5">
+                     <div class="col-md-5" ng-if="showRole(['admin','teacher'])"
+                     
+                     >
                     <div class="form-group">
                       <label>Select Class</label>
                       <select class="form-control select2"  data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
@@ -35,7 +37,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-5">
+                  <div class="col-md-5"  ng-if="showRole(['admin','teacher'])">
                     <div class="form-group">
                       <label>Select Section</label>
                       <select class="form-control select2" style="width: 100%;" ng-model="secId">
@@ -48,30 +50,30 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12"  ng-if="showRole(['admin','teacher'])">
                     <button type="submit" class="btn btn-primary pull-right">Select</button>
                     </div>                  
                 </div>
                   
-                <div class="box-header with-border">
+                <div class="box-header with-border"  ng-if="showRole(['admin','teacher'])">
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Assign Subjects</h3>
                 </div>
                 <form ng-submit="addTeacher()">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5"  ng-if="showRole(['admin','teacher'])">
                       <div class="form-group">
                           <h4><b>Subject Name</b></h4>
                       </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5"  ng-if="showRole(['admin','teacher'])">
                       <div class="form-group">
                           <h4><b>Teacher</b></h4>
                       </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5" ng-if="showRole(['admin','teacher','parent'])">
                       <div class="form-group">
                            <select  class="form-control select2"  style="width: 100%;"  ng-model="subjectId">
                             <option selected="selected">--Select--</option>
@@ -80,7 +82,7 @@
                           </select>
                       </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5" ng-if="showRole(['admin','teacher','parent'])">
                       <div class="form-group">
                           <select class="form-control select2" style="width: 100%;"  ng-model="teachId">
                             <option selected="selected">--Select--</option>
@@ -88,7 +90,7 @@
                           </select>
                       </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2" ng-if="showRole(['admin','teacher','parent'])">
                       <div class="form-group">
                         <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="Delete">
                         <i class="fa fa-trash" aria-hidden="true"></i>
