@@ -87,5 +87,9 @@ angular.module('school_erp')
         }
         $scope.getExamScheduleData();
 
+
+           $scope.showRole = function(role){            
+            return globalServices.fetchRoleAuth(role);
+        } 
 }])
 
