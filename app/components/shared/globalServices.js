@@ -1,10 +1,26 @@
 angular.module('school_erp')
-.factory('globalServices',['$http', function($http){
+.factory('globalServices',['$http','$rootScope', function($http, $rootScope){
     var globalServices = {};
     globalServices.globalValue = {
         baseURL: 'http://ec2-52-40-213-254.us-west-2.compute.amazonaws.com:4005/',
-        schoolID: ''
+        schoolID: '',
+        role:'teacher'
     };
+
+    globalServices.fetchRoleAuth = function(roles){
+        var i = 0;
+        var retVal;
+        while(i <= roles.length){
+             if(roles[i] == $rootScope.role){
+                retVal = true;
+                break;
+            }else{
+                retVal = false;
+            }
+            i++;
+        }
+        return retVal;
+    }
 
     globalServices.getClass = function(){
         return $http({
