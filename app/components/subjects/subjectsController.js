@@ -59,5 +59,9 @@ angular.module('school_erp')
         };
 
        // $scope.getSubjects();
+
+         $scope.showRole = function(role){            
+            return globalServices.fetchRoleAuth(role);
+        }
 }])
 

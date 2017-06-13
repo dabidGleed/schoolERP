@@ -89,7 +89,8 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
         .state('main.classWise', { // login Page
             url: "timetable/classWise",
-            templateUrl: "app/components/classWise/classWise.html"          
+            templateUrl: "app/components/classWise/classWise.html",
+            controller:"classWiseController"          
         })
          .state('main.teacherWise', { // login Page
             url: "timetable/teacherWise",

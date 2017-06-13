@@ -36,7 +36,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-4" ng-if="showRole(['admin','teacher','parent'])">
+                  <div class="col-md-4" ng-if="showRole(['admin','teacher'])">
                     <div class="form-group">
                       <label>Select Section</label>
                       <select  data-ng-change="populateSubjects(secId)" class="form-control select2" style="width: 100%;" ng-model="secId">
@@ -47,7 +47,7 @@
                     </div>
                   </div>
                    
-                  <div class="col-md-4" ng-if="showRole(['admin','teacher'])">
+                  <div class="col-md-4" ng-if="showRole(['admin','teacher','parent'])">
                         <div class="form-group">
                             <label>Select Subject</label>
                             <select  data-ng-change="getChapters(subId)" class="form-control select2" style="width: 100%;" ng-model="subId">
