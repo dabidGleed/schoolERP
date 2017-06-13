@@ -26,6 +26,10 @@ angular.module('school_erp')
             })
         } 
 
+        // Role based Display
+        $scope.showRole = function(role){            
+            return globalServices.fetchRoleAuth(role);
+        }
 
           $scope.populateSubjects = function(secId){
             $scope.subData = [];
