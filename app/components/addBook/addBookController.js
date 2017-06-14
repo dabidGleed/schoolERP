@@ -3,7 +3,6 @@ angular.module('school_erp')
         $scope.data = [];
          $scope.addBook= function(data){
              var bookDetails = {
-
                     book_title:$scope.data.book_title,
                     author_name:$scope.data.author_name,
                     book_price:$scope.data.book_price,
@@ -24,8 +23,8 @@ angular.module('school_erp')
             })
             .error(function(data,success){
                 ngDialog.open({
-                template: '<p>Some Error Occured!</p>',
-                plain: true
+                    template: '<p>Some Error Occured!</p>',
+                    plain: true
                 });
             })
            

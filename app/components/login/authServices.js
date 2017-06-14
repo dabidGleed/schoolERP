@@ -11,18 +11,8 @@ angular.module('school_erp')
                     data: $.param(dataValue),
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })
-                .then(function(result) {
-                    userInfo = {
-                        role: result.data.role,
-                        userId: result.data.uniqueId,
-                        accessToken: result.data.token                    
-                    };
-                    deferred.resolve(userInfo);
-                }, function(error) {
-                    deferred.reject(error);
-                });
-                    return deferred.promise;
-                };
+                
+        };
 
       authService.logout = function() {
             var deferred = $q.defer();
