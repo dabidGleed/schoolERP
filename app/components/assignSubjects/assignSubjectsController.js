@@ -1,6 +1,8 @@
 angular.module('school_erp')
-.controller("assignSbjectsController",['$http','$scope', 'globalServices','subjectsServices','employeeServices', function($http, $scope, globalServices, subjectsServices, employeeServices){
+.controller("assignSbjectsController",['$http','$scope', 'assignServices', 'ngDialog','globalServices','subjectsServices','employeeServices', function($http, $scope, assignServices, ngDialog, globalServices, subjectsServices, employeeServices){
         $scope.employeeData = [];
+        $scope.data = {};
+        $scope.teachId = '';
         // employeeServices.getEmployee()
         // .success(function(data, status){
         //     $scope.employeeData = data.employee;
@@ -8,8 +10,8 @@ angular.module('school_erp')
         // .error(function(data,success){
         // })
 
-          globalServices.getClass()
-        .success(function(data, status){
+        globalServices.getClass()
+         .success(function(data, status){
             $scope.classDatanew = data.school_classes;// Api list-name
             $scope.classId = $scope.classDatanew[0].class_id;
             $scope.populateSections($scope.classId);            
@@ -39,6 +41,14 @@ angular.module('school_erp')
             });
         }
 
+        $scope.getSubName = function(subid){
+            console.log(subid);
+            $scope.employeeData.forEach(function(ele){
+                if(ele.subject_id == subid){
+                    return ele.name;
+                }
+            });
+        };
         
         employeeServices.getEmployee()
         .success(function(data, status){
@@ -48,18 +58,23 @@ angular.module('school_erp')
         })
 
           $scope.addTeacher = function(data){
+            
+             var someVal = JSON.parse($scope.data.subjectObj);
+        
              var teacherDetails = {
-                  subject_id:$scope.data.subject_id ,
-                  subject_name:$scope.data.subject_name 
+                  subject_id: someVal.subject_id,
+                  subject_name: someVal.name
              }
-            assignServices.setTeacher(teacherDetails,  $scope.teacherId )   
+
+             console.log(teacherDetails)
+            assignServices.setTeacher(teacherDetails, $scope.data.teachId)
             .success(function(data, status){
                 ngDialog.open({
                 template: '<p>ExamPapers are Added Successfully.</p>',
                 plain: true
                 });
                 $scope.data = [];
-                $scope.getTeacher( $scope.teacherId);
+               // $scope.getTeacher( $scope.teacherId);
             })
             .error(function(data,success){
                 ngDialog.open({
@@ -69,7 +84,6 @@ angular.module('school_erp')
             })
            
         }
-        
           $scope.showRole = function(role){            
             return globalServices.fetchRoleAuth(role);
         }

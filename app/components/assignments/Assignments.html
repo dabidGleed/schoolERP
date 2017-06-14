@@ -65,7 +65,7 @@
                   <i class="fa fa-plus-square" aria-hidden="true"></i>
                   <h3 class="box-title">Add Assignments</h3>
                 </div>
-                <form name="Assignments" ng-submit="Assignments.$valid && aaddAssignments(data)" novalidate> 
+                <form name="Assignments" ng-submit="Assignments.$valid && addAssignments(data)" novalidate> 
                 <div class="row">
                     <div class="col-md-4" ng-if="showRole(['admin','teacher'])">
                       <div class="form-group" ng-class="{'has-error': Assignments.$submitted  && Assignments.assignmentTitle.$pristine}">

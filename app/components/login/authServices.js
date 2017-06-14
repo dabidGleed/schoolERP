@@ -1,5 +1,5 @@
 angular.module('school_erp')
-.factory('authService',['$http', 'globalServices', function($http, globalServices){
+.factory('authService',['$http', 'globalServices','$q', function($http, globalServices, $q){
     var authService = {};
 
 

@@ -11,4 +11,5 @@ angular.module('school_erp')
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })
       };
+      return assignServices;
 }])
