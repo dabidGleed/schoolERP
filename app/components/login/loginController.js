@@ -10,7 +10,7 @@ angular.module('school_erp')
                 authService.login(dataValue)
                 .success(function(data, status){      
                         $window.localStorage["userInfo"] = JSON.stringify(data);  
-                        $rootScope.role = data.role;                
+                        // $rootScope.role = data.role;                
                         if(status != 401){
                                 $rootScope.loginPage = false;
                                 $state.go('main.dashboard');

@@ -115,7 +115,7 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
          .state('main.bookList', { // login Page
             url: "library/bookList",
-            templateUrl: "app/components/bookList/bookList.html",
+            templateUrl: "app/components/bookList/bookList.html",   
              controller:"bookListController"          
         })
           .state('main.addStation', { // login Page

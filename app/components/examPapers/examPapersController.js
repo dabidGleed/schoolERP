@@ -1,6 +1,6 @@
 angular.module('school_erp')
 .controller("examPapersController",['$http','$scope','examServices', 'ngDialog' , 'globalServices' ,'subjectsServices' ,function($http, $scope, examServices, ngDialog, globalServices, subjectsServices){
-        $scope.examData = [];
+        $scope.data = [];
 
 
           globalServices.getClass()
