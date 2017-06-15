@@ -39,7 +39,8 @@ angular.module('school_erp')
                 session: "morning",
                 status: status    
              }
-           
+           console.log(Attendance);
+
             studentServices.setAttendance(Attendance, studentVal.student_id)
             .success(function(data, status){
                 
@@ -57,5 +58,38 @@ angular.module('school_erp')
                 });
             })
         }
+
+
+        $scope.students = [];
+       $scope.attn = function(student,status){
+            var noMatch = true;
+            var obj = {
+                student_id:student.student_id,
+                status:status
+            }
+
+            // $scope.students.forEach(function(students) {             
+            //     if(students.student_id == student.student_id){
+            //         students.status = status;
+            //         noMatch = false;
+            //     } else {
+            //         noMatch = true;
+            //     }
+            // });
+
+            // if(noMatch){
+            //     $scope.students.push(obj);
+            //     noMatch = false;
+            // }
+            
+            var students;
+            while(students.student_id == student.student_id){
+                 students.status = status;
+            }
+            //  console.log(obj);
+        }
+       
+       
+
 }])
 
