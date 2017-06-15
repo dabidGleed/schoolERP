@@ -1,13 +1,7 @@
 angular.module('school_erp')
-.factory('authService',['$http', 'globalServices', function($http, globalServices){
+.factory('authService',['$http', 'globalServices','$q', '$window','$rootScope', function($http, globalServices, $q, $window, $rootScope){
     var authService = {};
 
-    authService.getExamSchedule = function(){
-        return $http({
-            method: 'GET',
-            url: globalServices.globalValue.baseURL + 'signin'
-        })
-    };
 
      authService.login = function(dataValue){
         
@@ -17,7 +11,29 @@ angular.module('school_erp')
                     data: $.param(dataValue),
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
                 })
-      };
+                
+        };
+
+      authService.logout = function() {
+           // var deferred = $q.defer();
+            $window.localStorage["userInfo"] = null;
+            $window.localStorage["role"] = null;           
+          //  return deferred.promise;
+        };
+
+         authService.getUserInfo = function() {
+             var userInfo;
+           if ($window.localStorage["userInfo"]) {
+            userInfo = JSON.parse($window.localStorage["userInfo"]);
+            if(userInfo != null){
+              $rootScope.role = userInfo.role;
+            }else{
+                $rootScope.role = '';
+              $window.localStorage["userInfo"] = null;
+          }
+        }
+            return userInfo;
+        };
      
       return authService;
 

@@ -1,7 +1,7 @@
 angular.module('school_erp')
 .controller("assignmentsController",['$http','$scope','globalServices','subjectsServices','assignmentsServices','chaptersServices','ngDialog', function($http, $scope, globalServices, subjectsServices, assignmentsServices, chaptersServices, ngDialog){
-        $scope.assignmentsData = [];
-       
+        $scope.data = [];
+      
           globalServices.getClass()
         .success(function(data, status){
             $scope.classData = data.school_classes;// Api list-name
@@ -62,8 +62,9 @@ angular.module('school_erp')
        
 
             $scope.addAssignments= function(data){
+                console.log('assignments');
              var assignDetails = {
-                 assignment_title: $scope.data.assignment_title ,
+                 assignment_title: $scope.data.assignment_title,
                  due_date:$scope.data.due_date ,
                  description:$scope.data.description
              }

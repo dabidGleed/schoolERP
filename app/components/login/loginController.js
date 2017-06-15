@@ -1,5 +1,5 @@
 angular.module('school_erp')
-.controller("loginController",['$http','$scope','$rootScope','authService','$state','ngDialog', function($http, $scope, $rootScope, authService, $state, ngDialog){
+.controller("loginController",['$http','$scope','$rootScope','authService','$state','ngDialog','$window', function($http, $scope, $rootScope, authService, $state, ngDialog, $window){
         $scope.datab = [];
        
         $scope.login = function(data){
@@ -8,7 +8,9 @@ angular.module('school_erp')
                 password: $scope.datab.password
                 };
                 authService.login(dataValue)
-                .success(function(data, status){                        
+                .success(function(data, status){      
+                        $window.localStorage["userInfo"] = JSON.stringify(data);
+                        $rootScope.role = data.role;                
                         if(status != 401){
                                 $rootScope.loginPage = false;
                                 $state.go('main.dashboard');
@@ -22,6 +24,12 @@ angular.module('school_erp')
                 .error(function(data,success){
                 })
         };        
+
+         $scope.logout = function(){                
+                authService.logout();
+                 $state.go('login');
+        };        
+
         $rootScope.loginPage = true;
 }])
 

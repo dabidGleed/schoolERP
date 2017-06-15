@@ -1,6 +1,7 @@
 angular.module('school_erp')
-.controller("BusRouteController", ['$http','$scope','BusRouteServices','ngDialog','addStationServices', function($http, $scope, BusRouteServices, ngDialog, addStationServices){
-        $scope.busRoutes = [];
+.controller("BusRouteController", ['$http','$scope','BusRouteServices','ngDialog','addStationServices','globalServices', function($http, $scope, BusRouteServices, ngDialog, addStationServices, globalServices){
+        $scope.data = [];
+        $scope.getBusRoute = function(){
         BusRouteServices.getBusRoute()
         .success(function(data, status){
             $scope.busRoutes = data.bus_routes;
@@ -8,7 +9,7 @@ angular.module('school_erp')
         })
         .error(function(data,success){
         })
-        
+        }   
     
        
         addStationServices.getStation()
@@ -94,5 +95,7 @@ angular.module('school_erp')
               $scope.showRole = function(role){            
             return globalServices.fetchRoleAuth(role);
         } 
+
+         $scope.getBusRoute();
 }])
 
