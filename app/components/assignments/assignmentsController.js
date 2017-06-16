@@ -1,7 +1,7 @@
 angular.module('school_erp')
 .controller("assignmentsController",['$http','$scope','globalServices','subjectsServices','assignmentsServices','chaptersServices','ngDialog', function($http, $scope, globalServices, subjectsServices, assignmentsServices, chaptersServices, ngDialog){
             $scope.data = [];
-          globalServices.getClass()
+         globalServices.getClass()
         .success(function(data, status){
             $scope.classData = data.school_classes;// Api list-name
             $scope.classId = $scope.classData[0].class_id;
@@ -12,24 +12,26 @@ angular.module('school_erp')
         })
 
          $scope.populateSections = function(classId){
+             $scope.secId =[]; 
             globalServices.getSections(classId)
             .success(function(data, status){
                 $scope.secData = data.class_sections;// Api list-name
                 $scope.secId = $scope.secData[0].section_id;
-              
-                $scope.populateSubject($scope.secId)
+                $scope.populateSubjects($scope.secId);
+                
             })
             .error(function(data,success){
+                
+                $scope.populateSubjects($scope.secId);
             })
-        }
-
-           $scope.populateSubject = function(secId){
+        } 
+          $scope.populateSubjects = function(secId){
             $scope.subData = [];
             subjectsServices.getSubjects(secId)
             .success(function(data, status){
                 $scope.subData = data.subjects;
                 $scope.subId = $scope.subData[0].subject_id;
-                  $scope.populateChapters($scope.subId); 
+                $scope.getChapters($scope.subId);
             })
             .error(function(data,success){
             });
