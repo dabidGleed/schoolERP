@@ -19,13 +19,14 @@ angular.module('school_erp')
             .success(function(data, status){
                 $scope.secData = data.class_sections;// Api list-name
                 $scope.secId = $scope.secData[0].section_id;
-               
             })
             .error(function(data,success){
             })
         }
-
-
+       
+        $scope.populateExams= function(secId) {
+            $scope.getExamPapers($scope.secId);
+        }
         $scope.getExamScheduleData = function(){
              examServices.getExamSchedule()
             .success(function(data, status){
