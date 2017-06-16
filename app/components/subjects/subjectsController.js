@@ -1,7 +1,7 @@
 angular.module('school_erp')
 .controller("subjectsController",['$http','$scope','subjectsServices','ngDialog','globalServices', function($http, $scope, subjectsServices, ngDialog, globalServices){
         $scope.subjectsData = [];    
-
+        $scope.data = [];
         globalServices.getClass()
         .success(function(data, status){
             $scope.classData = data.school_classes;// Api list-name

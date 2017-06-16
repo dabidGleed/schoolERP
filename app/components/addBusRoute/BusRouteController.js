@@ -25,7 +25,9 @@ angular.module('school_erp')
                 var StationDetails = {
                     route_title:$scope.data.route_title,
                     vehicle_code:$scope.data.vehicle_code, 
-                    vehicle_number:$scope.data.vehicle_number
+                    station:$scope.data.station ,
+                    pickup_time:$scope.data.pickup_time,
+                    drop_time:$scope.data.drop_time 
             }
             BusRouteServices.setBusRoute(StationDetails)   
             .success(function(data, status){
