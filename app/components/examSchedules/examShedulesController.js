@@ -2,7 +2,7 @@ angular.module('school_erp')
 .controller("examSchedulesController",['$http','$scope','examServices','ngDialog', 'globalServices', function($http, $scope, examServices,ngDialog, globalServices){
         $scope.examData = [];
           $scope.today1 = '01/01/1975';
-
+          $scope.data = [];
 
         globalServices.getClass()
         .success(function(data, status){
@@ -19,7 +19,7 @@ angular.module('school_erp')
             .success(function(data, status){
                 $scope.secData = data.class_sections;// Api list-name
                 $scope.secId = $scope.secData[0].section_id;
-                $scope.getStudentValue($scope.secId);
+               
             })
             .error(function(data,success){
             })
