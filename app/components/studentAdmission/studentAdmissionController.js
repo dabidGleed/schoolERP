@@ -26,7 +26,7 @@ angular.module('school_erp')
             .success(function(data, status){
                 $scope.secData = data.class_sections;// Api list-name
                 $scope.secId = $scope.secData[0].section_id;
-                $scope.getStudentValue($scope.secId);
+                // $scope.getStudentValue($scope.secId);
             })
             .error(function(data,success){
             })
