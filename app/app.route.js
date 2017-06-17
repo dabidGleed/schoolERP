@@ -13,11 +13,11 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
             views: {
                 '': { templateUrl: "app/components/shared/main.html" },
                 'header@main': { templateUrl: "app/components/shared/header.html", controller:'headController' },
-                'sidebar@main': { templateUrl: "app/components/shared/sidebar.html" },
+                'sidebar@main': { templateUrl: "app/components/shared/sidebar.html", controller:'sideController' },
                 'footer@main': { templateUrl: "app/components/shared/footer.html" }
             },
             data:{
-                requireLogin:true
+                requireLogin:true                
             }
         })
         .state('main.dashboard', { // login Page
@@ -206,6 +206,7 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
          .state('main.routeGeolocation', { // login Page
             url: "transport/routeGeolocation",
             templateUrl: "app/components/routeGeolocation/routeGeolocation.html",     
+            controller: "routeGeoLocationController",
              data:{
                 requireLogin:true
             }              
