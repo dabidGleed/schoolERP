@@ -206,6 +206,7 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
          .state('main.routeGeolocation', { // login Page
             url: "transport/routeGeolocation",
             templateUrl: "app/components/routeGeolocation/routeGeolocation.html",     
+            controller: "routeGeoLocationController",
              data:{
                 requireLogin:true
             }              
