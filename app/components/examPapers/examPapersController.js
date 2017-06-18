@@ -48,8 +48,9 @@ angular.module('school_erp')
              var examDetails = {
                exam_paper_title: $scope.data.exam_paper_title,
                date: $scope.data.date,
-               time_from: $scope.data.time_from,
-               time_to:$scope.data.time_to
+               start_time: $scope.data.time_from,
+               end_time:$scope.data.time_to,
+               max_marks:$scope.data.max_marks
              }
             examServices.setExamPapers(examDetails, $scope.subjectId, $scope.examScheduleId)   
             .success(function(data, status){

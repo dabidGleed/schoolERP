@@ -31,7 +31,7 @@ angular.module('school_erp')
             .success(function(data, status){
                 $scope.subData = data.subjects;
                 $scope.subId = $scope.subData[0].subject_id;
-                $scope.getChapters($scope.subId);
+                $scope.populateChapters($scope.subId);
             })
             .error(function(data,success){
             });
@@ -42,7 +42,7 @@ angular.module('school_erp')
             .success(function(data, status){
                 console.log(subId)
                 $scope.chapterData = data[subId+""];
-                // $scope.chapterId = $scope.chapterData[0].lesson_id;
+                $scope.chapterId = $scope.chapterData[0].lesson_id;
                 $scope.getAssignments();
             })
             .error(function(data,success){
