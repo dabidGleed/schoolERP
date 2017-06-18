@@ -2,13 +2,13 @@ angular.module('school_erp')
 .controller("BusRouteController", ['$http','$scope','BusRouteServices','ngDialog','addStationServices','globalServices', function($http, $scope, BusRouteServices, ngDialog, addStationServices, globalServices){
         $scope.data = [];
         $scope.getBusRoute = function(){
-        BusRouteServices.getBusRoute()
-        .success(function(data, status){
-            $scope.busRoutes = data.bus_routes;
-            $scope.routeId = $scope.busRoutes[0].route_id;
-        })
-        .error(function(data,success){
-        })
+            BusRouteServices.getBusRoute()
+            .success(function(data, status){
+                $scope.busRoutes = data.bus_routes;
+                $scope.routeId = $scope.busRoutes[0].route_id;
+            })
+            .error(function(data,success){
+            })
         }   
     
        
