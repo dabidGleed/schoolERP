@@ -1,15 +1,23 @@
 angular.module('school_erp')
 .controller("studentAdmissionController",['$http','$scope','studentServices', 'ngDialog','globalServices', 'BusRouteServices', function($http, $scope, studentServices, ngDialog, globalServices, BusRouteServices ){
         $scope.classData = [];
-        $scope.data = [];     
-
-          BusRouteServices.getTime('ROUTE-1','STN-1')
+        $scope.data = [];  
+        BusRouteServices.getBusRoute()
         .success(function(data, status){
-            $scope.busRoutes = data.station_bus_routes;
+            $scope.busRoutes = data.bus_routes;
             $scope.routeId = $scope.busRoutes[0].route_id;
         })
         .error(function(data,success){
         })
+    s    
+
+        //   BusRouteServices.getTime('ROUTE-1','STN-1')
+        // .success(function(data, status){
+        //     $scope.busRoutes = data.station_bus_routes;
+        //     $scope.routeId = $scope.busRoutes[0].route_id;
+        // })
+        // .error(function(data,success){
+        // })
 
          globalServices.getClass()
         .success(function(data, status){
