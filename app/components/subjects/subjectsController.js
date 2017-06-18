@@ -2,6 +2,10 @@ angular.module('school_erp')
 .controller("subjectsController",['$http','$scope','subjectsServices','ngDialog','globalServices', function($http, $scope, subjectsServices, ngDialog, globalServices){
         $scope.subjectsData = [];    
         $scope.data = [];
+        $scope.classData = [];
+        $scope.secId = '';
+        $scope.secData = [];
+        $scope.classId = '';
         globalServices.getClass()
         .success(function(data, status){
             $scope.classData = data.school_classes;// Api list-name
@@ -13,6 +17,7 @@ angular.module('school_erp')
         })
 
          $scope.populateSections = function(classId){
+             $scope.secId = '';
             globalServices.getSections(classId)
             .success(function(data, status){
                 $scope.secData = data.class_sections;// Api list-name
@@ -20,7 +25,8 @@ angular.module('school_erp')
                 $scope.getSubjects($scope.secId);
             })
             .error(function(data,success){
-            })
+            })          
+                   
         }
 
 
@@ -33,14 +39,14 @@ angular.module('school_erp')
             });
         }
 
-         $scope.addSubjects = function(data){
+         $scope.addSubjects = function(data,sec){
              var Subjects = {
                _id:"",
                subject_id: $scope.data.subject_id,
                class_id: "",
                name:$scope.data.name 
              }
-            subjectsServices.setSubjects(Subjects, $scope.secId)   
+            subjectsServices.setSubjects(Subjects, sec)   
             .success(function(data, status){
                 ngDialog.open({
                 template: '<p>Subjects are Added Successfully.</p>',
