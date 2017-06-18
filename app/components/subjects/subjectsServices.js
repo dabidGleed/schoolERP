@@ -1,7 +1,7 @@
 angular.module('school_erp')
 .factory('subjectsServices',['$http', 'globalServices', function($http, globalServices){
     var subjectsServices = {};
-
+ 
     subjectsServices.getSubjects = function(secID){
         return $http({
                     method: 'GET',
