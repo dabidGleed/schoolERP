@@ -8,7 +8,7 @@ angular.module('school_erp')
                 first_name: $scope.data.first_name,
                 last_name: $scope.data.last_name,
                 dob: $scope.data.dob,
-                job_category: $scope.data.job_category,
+                job_category: $scope.data.jobType,
                 experience: $scope.data.experience,
                 phone:$scope.data.phone,
                 email:$scope.data.email,

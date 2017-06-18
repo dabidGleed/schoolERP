@@ -25,6 +25,7 @@
               <!-- /.box-header -->
               <div class="box-body" >
                 <div class="row">
+                  
                   <div class="col-md-6" ng-if="showRole(['admin','teacher'])">
                     <div class="form-group">
                       <label>Select Class</label>
@@ -38,8 +39,8 @@
                   <div class="col-md-6"ng-if="showRole(['admin','teacher'])">
                     <div class="form-group">
                       <label>Select Section</label>
-                      <select data-ng-change="populateSubjects(secId)" class="form-control select2" style="width: 100%;" ng-model="secId">
-                       <option selected="selected">--Select--</option>
+                      <select data-ng-change="getSubjects(secId)" class="form-control select2" style="width: 100%;" ng-model="secId">
+                       <option>--Select--</option>
                         <option ng-repeat="sec in secData" value="{{sec.section_id}}">{{sec.name}}</option>
                       </select>
                     </div>
