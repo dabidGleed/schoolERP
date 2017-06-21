@@ -17,7 +17,7 @@
     <!-- Main content -->
     <section class="content">
       <!-- Select Criteria -->
-
+      <form name="Vehicles" ng-submit="Vehicles.$valid && addVehicle(data)" novalidate>
             <div class="box box-default">
               <div class="box-header with-border">
                   <h3 class="box-title">Create Vehicle</h3>
@@ -27,15 +27,15 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label>Vehicle Number</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <label>Vehicle Name</label>
+                      <input type="text" ng-model="data.vehicle_name" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Vehicle Code</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                      <input type="text" ng-model="data.vehicle_code" class="form-control" placeholder="Enter ...">
                     </div>
                   </div>
 
@@ -46,7 +46,7 @@
                   <button type="submit" class="btn btn-primary pull-right">Add Vehicle</button>
               </div>
             </div>
-    
+      </form>
     <!-- /.content -->
     
     <!-- Content List -->
@@ -68,16 +68,16 @@
                   <thead>
                     <tr>
                       <th>#</th>  
-                      <th>Vehicle Number</th>
+                      <th>Vehicle Name</th>
                       <th>Vehicle Code</th>
                       <th class="pull-right">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="mailbox-name"> 1.</td>  
-                      <td class="mailbox-name"> AP07BM 6399</td>
-                      <td class="mailbox-name"> 1801</td>                      
+                    <tr ng-repeat="vehicle in vehicles">
+                      <td class="mailbox-name"> {{$index+1}}</td>  
+                      <td class="mailbox-name"> {{vehicle.vehicle_name}}</td>
+                      <td class="mailbox-name"> {{vehicle.vehicle_code}}</td>                      
                       <td class="mailbox-date pull-right">                    
                         <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
                             <i class="fa fa-pencil"></i>

@@ -37,10 +37,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Vehicle</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">--Select--</option>
-                        <option>Vehicle 1</option>
-                        
+                      <select ng-options="vehicle.vehicle_code as vehicle.vehicle_name for vehicle in vehicles"  class="form-control select2" ng-model="vehicleId" style="width: 100%;">
                       </select>
                     </div>
                   </div>
@@ -50,10 +47,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Select a Station</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">--Select--</option>
-                                <option>Station 1</option>
-                               
+                           <select ng-options="Station.station_code as Station.station_name for Station in data"  class="form-control select2" ng-model="vehicleId" style="width: 100%;">
                             </select>    
                         </div>
                     </div>
@@ -85,14 +79,14 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">  Add  </button>
-                        </div>
-                    </div>
                 </div>
-
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">  Add  </button>
+                  </div>
+                 </div>
+              </div>
                 <div class="box-body">
                   <div class="row">
                   <div class="tab-content">
