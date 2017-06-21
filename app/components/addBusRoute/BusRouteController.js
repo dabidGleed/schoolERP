@@ -1,14 +1,14 @@
 angular.module('school_erp')
-.controller("BusRouteController", ['$http','$scope','BusRouteServices','ngDialog','addStationServices','globalServices', function($http, $scope, BusRouteServices, ngDialog, addStationServices, globalServices){
+.controller("BusRouteController", ['$http','$scope','BusRouteServices','ngDialog','addStationServices','globalServices','addVehicleServices', function($http, $scope, BusRouteServices, ngDialog, addStationServices, globalServices, addVehicleServices){
         $scope.data = [];
         $scope.getBusRoute = function(){
-        BusRouteServices.getBusRoute()
-        .success(function(data, status){
-            $scope.busRoutes = data.bus_routes;
-            $scope.routeId = $scope.busRoutes[0].route_id;
-        })
-        .error(function(data,success){
-        })
+            BusRouteServices.getBusRoute()
+            .success(function(data, status){
+                $scope.busRoutes = data.bus_routes;
+                $scope.routeId = $scope.busRoutes[0].route_id;
+            })
+            .error(function(data,success){
+            })
         }   
     
        
@@ -97,6 +97,22 @@ angular.module('school_erp')
               $scope.showRole = function(role){            
             return globalServices.fetchRoleAuth(role);
         } 
+
+        
+        addVehicleServices.getVehicle()
+            .success(function(data, status){
+            $scope.vehicles = data.vehicles;
+        })
+        .error(function(data,success){
+        });
+
+        addStationServices.getStation()
+        .success(function(data, status){
+            $scope.data = data.stations;
+        })
+        .error(function(data,success){
+        });
+        
 
          $scope.getBusRoute();
 }])

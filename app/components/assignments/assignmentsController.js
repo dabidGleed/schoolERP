@@ -1,6 +1,7 @@
 angular.module('school_erp')
 .controller("assignmentsController",['$http','$scope','globalServices','subjectsServices','assignmentsServices','chaptersServices','ngDialog', function($http, $scope, globalServices, subjectsServices, assignmentsServices, chaptersServices, ngDialog){
             $scope.data = [];
+            $scope.chapterId = '';
          globalServices.getClass()
         .success(function(data, status){
             $scope.classData = data.school_classes;// Api list-name
@@ -41,19 +42,20 @@ angular.module('school_erp')
             chaptersServices.getChapters(subId)
             .success(function(data, status){
                 console.log(subId)
-                $scope.chapterData = data[subId+""];
-                $scope.chapterId = $scope.chapterData[0].lesson_id;
-                $scope.getAssignments();
+                $scope.chapterData = data[subId+""];      
+                $scope.chapterId =  $scope.chapterData[0].lesson_id     
+                $scope.getAssignments($scope.chapterId);
             })
             .error(function(data,success){
             });
         }
        
 
-          $scope.getAssignments = function(){
-            assignmentsServices.getAssignments( $scope.chapterId,$scope.secId)
+          $scope.getAssignments = function(chapterId){
+              console.log($scope.chapterId);
+            assignmentsServices.getAssignments($scope.chapterId,$scope.secId)
             .success(function(data, status){
-        
+                console.log(status);
                 $scope.assignmentsData = data.assignments;
 
             })
@@ -63,13 +65,13 @@ angular.module('school_erp')
        
 
             $scope.addAssignments= function(data){
-                console.log('assignments');
+                console.log($scope.chapterId+"lesson");
              var assignDetails = {
                  assignment_title: $scope.data.assignment_title,
                  due_date:$scope.data.due_date ,
                  description:$scope.data.description
              }
-            assignmentsServices.setAssignments(assignDetails,  $scope.secId, $scope.chapterId)   
+            assignmentsServices.setAssignments(assignDetails,$scope.chapterId, $scope.secId)   
             .success(function(data, status){
                 ngDialog.open({
                 template: '<p>Assignments are Added Successfully.</p>',
