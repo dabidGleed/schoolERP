@@ -210,6 +210,15 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
              data:{
                 requireLogin:true
             }              
+        })
+
+        .state('main.addVehicle', { 
+            url: "transport/addVehicle",
+            templateUrl: "app/components/addVehicle/addVehicle.html",     
+            controller: "addVehicleController",
+             data:{
+                requireLogin:true
+            }              
         });
         $urlRouterProvider.otherwise("/login");
         

@@ -61,13 +61,13 @@
                         <input type="text" name="subjectName" class="form-control" ng-model="data.name" placeholder="Enter ..." required>
                       </div>
                     </div>
-                    <div class="col-md-4" ng-if="showRole(['admin','teacher'])">
+                    <!--<div class="col-md-4" ng-if="showRole(['admin','teacher'])">
                       <div class="form-group">
                         <label>Subject Code</label>
                         <input type="text" class="form-control" ng-model="data.subject_id" placeholder="Enter ...">
                       </div>
-                    </div>
-                    <div class="col-md-4" ng-if="showRole(['admin','teacher'])">
+                    </div>-->
+                    <!--<div class="col-md-4" ng-if="showRole(['admin','teacher'])">
                       <div class="radio">
                         <label>
                         <input type="radio" name="optionsRadios" id="optionsRadios1"  value="option1" checked="">
@@ -80,7 +80,7 @@
                         Practical
                         </label>
                       </div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="row">
                     <div class="col-md-12" ng-if="showRole(['admin','teacher'])">
@@ -109,8 +109,8 @@
                    <tr>
                     <th>#</th>
                     <th>Subject Name</th>
-                    <th>Subject Code</th>
-                    <th>Subject Type</th>
+                    <!--<th>Subject Code</th>-->
+                    <!--<th>Subject Type</th>-->
                     <th class="pull-right">Action</th>
                    </tr>
                   </thead>
@@ -118,8 +118,8 @@
                    <tr ng-repeat="subjects in subjectsData">
                       <td>{{$index+1}}</td>
                      <td>{{subjects.name}}</td>
-                      <td>{{subjects.subject_id}} </td>
-                      <td>{{subjects._id}}</td>
+                      <!--<td>{{subjects.subject_id}} </td>-->
+                      <!--<td>{{subjects._id}}</td>-->
                     <td class="pull-right">
                       <a href="" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" title="Edit">
                         <i class="fa fa-pencil"></i>
