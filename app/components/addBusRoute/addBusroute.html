@@ -62,9 +62,7 @@
                   <div class="col-md-4" ng-if="showRole(['admin','teacher'])">
                     <div class="form-group">
                       <label>Select Route</label>
-                      <select class="form-control select2" ng-model="routeId" style="width: 100%;">
-                        <option selected="selected">--Select--</option>
-                         <option ng-repeat="route in busRoutes " value="{{route.route_id}}">{{route.route_title}}</option>
+                      <select class="form-control select2" ng-options="route.route_id as route.route_title for route in busRoutes" ng-model="routeId" style="width: 100%;">
                         
                       </select>
                     </div>
@@ -75,11 +73,7 @@
                     <div class="col-md-4" ng-if="showRole(['admin','teacher'])">
                         <div class="form-group">
                             <label>Select a Station</label>
-                            <select class="form-control select2"  ng-model="stationId" style="width: 100%;">
-                                <option selected="selected">--Select--</option>
-                                <option ng-repeat="station in stations " value="{{station.station_id}}">{{station.station_name}}</option>
-                        
-                              
+                            <select class="form-control select2" ng-options="station.station_id as station.station_name for station in stations"  ng-model="stationId" style="width: 100%;">                        
                             </select>    
                         </div>
                     </div>

@@ -28,9 +28,8 @@
                   <div class="col-md-6" ng-if="showRole(['admin','teacher'])">
                     <div class="form-group">
                       <label>Select Class {{classId}}</label>
-                     <select class="form-control select2" data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
-                        <option selected="selected">--Select--</option>
-                        <option ng-repeat="class in classData" value="{{class.class_id}}">{{class.name}}</option>
+                     <select class="form-control select2" ng-options="class.class_id as class.name for class in classData" data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
+                       
                       </select>
                     </div>
                   </div>
@@ -38,9 +37,7 @@
                   <div class="col-md-6"ng-if="showRole(['admin','teacher'])">
                     <div class="form-group">
                       <label>Select Section {{secId}}</label>
-                      <select data-ng-change="getSubjects(secId)" class="form-control select2" style="width: 100%;" ng-model="secId">
-                       <option selected="selected">--Select--</option>
-                        <option ng-repeat="sec in secData" value="{{sec.section_id}}">{{sec.name}}</option>
+                      <select data-ng-change="getSubjects(secId)" ng-options="sec.section_id as sec.name for sec in secData" class="form-control select2" style="width: 100%;" ng-model="secId">
                       </select>
                     </div>
                   </div>

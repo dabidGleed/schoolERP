@@ -9,7 +9,7 @@ angular.module('school_erp')
         })
         .error(function(data,success){
         })
-    s    
+      
 
         //   BusRouteServices.getTime('ROUTE-1','STN-1')
         // .success(function(data, status){
