@@ -3,6 +3,7 @@ angular.module('school_erp')
         $scope.data = [];
         addBookServices.getBook()
         .success(function(data, status){
+    
             $scope.data = data.books;
         })
         .error(function(data,success){

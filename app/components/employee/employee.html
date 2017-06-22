@@ -39,11 +39,11 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Employee Type</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">--Select--</option>
-                        <option>Teaching</option>
-                        <option>Non-Teaching</option>
-                        <option>Administrative</option>
+                      <select ng-model="search.job_category" class="form-control select2" style="width: 100%;">
+                        <option value="" selected="selected">--Select--</option>
+                        <option value="teaching">Teaching</option>
+                        <option value="non-teaching">Non-Teaching</option>
+                        <option value="administrative">Administrative</option>
                       </select>
                     </div>
                   </div>
@@ -51,10 +51,10 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Gender</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">--Select--</option>
-                        <option>Male</option>
-                        <option>Female</option>
+                      <select ng-model="search.gender" class="form-control select2" style="width: 100%;">
+                        <option value="" selected="selected">--Select--</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                       </select>
                     </div>
                   </div>
@@ -104,7 +104,7 @@
                    </tr>
                   </thead>
                  <tbody>
-                   <tr ng-repeat="employee in employeeData | filter:searchEmp">
+                   <tr ng-repeat="employee in employeeData | filter:search:true">
                     <td>{{employee.employee_id}}</td>
                     <td><a href="">{{employee.first_name}} {{employee.last_name }}</a></td>
                     <td>{{employee.gender}}</td>
