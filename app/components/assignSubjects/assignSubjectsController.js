@@ -52,6 +52,7 @@ angular.module('school_erp')
         
         employeeServices.getEmployee()
         .success(function(data, status){
+              console.log(data);
         $scope.employeeData = data.employee;
         })
         .error(function(data,success){
@@ -87,5 +88,6 @@ angular.module('school_erp')
           $scope.showRole = function(role){            
             return globalServices.fetchRoleAuth(role);
         }
+        $scope.getSubjects();
 }])
 

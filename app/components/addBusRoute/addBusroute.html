@@ -26,28 +26,29 @@
         <div class="box-body">
           <div class="tab-content">
               <div class="tab-pane no-padding active" id="tab_1">
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Route Title</label>
-                      <input type="text" class="form-control" placeholder="Enter ...">
+                 <form name="BusRoute" ng-submit="BusRoute.$valid && addBusRoute(data)" novalidate>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Route Title</label>
+                        <input ng-model="data.route_title" type="text" class="form-control" placeholder="Enter ...">
+                      </div>
                     </div>
-                  </div>
             
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Select Vehicle</label>
-                      <select ng-options="vehicle.vehicle_code as vehicle.vehicle_name for vehicle in vehicles"  class="form-control select2" ng-model="vehicleId" style="width: 100%;">
-                      </select>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Select Vehicle</label>
+                        <select ng-options="vehicle.vehicle_code as vehicle.vehicle_name for vehicle in vehicles"  class="form-control select2" ng-model="data.vehicle_code" style="width: 100%;">
+                        </select>
+                      </div>
                     </div>
                   </div>
-                </div>
             
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Select a Station</label>
-                           <select ng-options="Station.station_code as Station.station_name for Station in data"  class="form-control select2" ng-model="vehicleId" style="width: 100%;">
+                           <select ng-options="Station.station_code as Station.station_name for Station in stations"  class="form-control select2" ng-model="data.station" style="width: 100%;">
                             </select>    
                         </div>
                     </div>
@@ -57,7 +58,7 @@
                             <div class="form-group">
                                 <label>Pickup Time</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control timepicker">
+                                        <input ng-model="data.pickup_time" type="text" class="form-control timepicker">
                                         <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>
                                         </div>
@@ -71,7 +72,7 @@
                             <div class="form-group">
                                 <label>Dropping Time</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control timepicker">
+                                        <input ng-model="data.drop_time" type="text" class="form-control timepicker">
                                         <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>
                                         </div>
@@ -79,15 +80,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
-              <div class="row">
                 <div class="col-md-3">
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary">  Add  </button>
-                  </div>
+                 <div class="form-group">
+                   <button type="submit" class="btn btn-primary">  Add  </button>
+                   </div>
                  </div>
-              </div>
-                <div class="box-body">
+
+                </div>
+                </form> 
+      
+               <div class="box-body">
                   <div class="row">
                   <div class="tab-content">
                     <div class="table-responsive mailbox-messages">
@@ -104,13 +106,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="mailbox-name"> 1.</td>  
-                      <td class="mailbox-name"> Beach Road</td>
-                      <td class="mailbox-name"> Seethammadhara</td>
-                      <td class="mailbox-name"> A180</td>
-                      <td class="mailbox-name"> 8:30 a.m</td>  
-                      <td class="mailbox-name"> 5:30 a.m</td> 
+                    <tr ng-repeat="busRoute in busRoutes">
+                      <td class="mailbox-name"> {{$index+1}}</td>  
+                      <td class="mailbox-name"> {{busRoute.route_title}}</td>
+                      <td class="mailbox-name"> {{busRoute.vehicle_code}}</td>
+                      <td class="mailbox-name">{{busRoute.station}}</td>
+                      <td class="mailbox-name"> {{busRoute.pickup_time}}</td>  
+                      <td class="mailbox-name"> {{busRoute.drop_time}}</td> 
                       <td class="mailbox-date pull-right">                    
                         <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
                             <i class="fa fa-pencil"></i>
@@ -136,19 +138,12 @@
                 </div>
 
               </div>  
-
               <div class="tab-pane no-padding active" id="tab_2">
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Select Route</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">--Select--</option>
-                        <option>Route 1</option>
-                        <option>Route 2</option>
-                        <option>Route 3</option>
-                        <option>Route 4</option>
-                        <option>Route 5</option>
+                      <select ng-model="search.route_title" ng-options="Route.route_title as Route.route_title for Route in busRoutes" class="form-control select2" ng-model="data.route_title" style="width: 100%;">
                       </select>
                     </div>
                   </div>
@@ -179,13 +174,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="mailbox-name"> 1.</td>  
-                      <td class="mailbox-name"> Beach Road</td>
-                      <td class="mailbox-name"> Seethammadhara</td>
-                      <td class="mailbox-name"> A180</td>
-                      <td class="mailbox-name"> 8:30 a.m</td>  
-                      <td class="mailbox-name"> 5:30 a.m</td> 
+                    <tr ng-repeat="busRoute in busRoutes | filter:search:true">
+                      <td class="mailbox-name"> {{$index+1}}</td>  
+                      <td class="mailbox-name"> {{busRoute.route_title}}</td>
+                      <td class="mailbox-name"> {{busRoute.vehicle_code}}</td>
+                      <td class="mailbox-name">{{busRoute.station}}</td>
+                      <td class="mailbox-name"> {{busRoute.pickup_time}}</td>  
+                      <td class="mailbox-name"> {{busRoute.drop_time}}</td> 
                       <td class="mailbox-date pull-right">                    
                         <a href="" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="Edit">
                             <i class="fa fa-pencil"></i>

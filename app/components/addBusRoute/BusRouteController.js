@@ -15,7 +15,7 @@ angular.module('school_erp')
         addStationServices.getStation()
         .success(function(data, status){
             $scope.stations = data.stations;
-             $scope.stationId = $scope.stations[0].station_id;
+            //  $scope.stationId = $scope.stations[0].station_id;
         })
         .error(function(data,success){
         });
@@ -106,12 +106,12 @@ angular.module('school_erp')
         .error(function(data,success){
         });
 
-        addStationServices.getStation()
-        .success(function(data, status){
-            $scope.data = data.stations;
-        })
-        .error(function(data,success){
-        });
+        // addStationServices.getStation()
+        // .success(function(data, status){
+        //     $scope.data = data.stations;
+        // })
+        // .error(function(data,success){
+        // });
         
 
          $scope.getBusRoute();
