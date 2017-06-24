@@ -105,7 +105,7 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
          .state('main.assignments', { // login Page
             url: "academics/assignments",
-            templateUrl: "app/components/assignments/assignments.html",
+            templateUrl: "app/components/assignments/Assignments.html",
             controller:"assignmentsController"    ,     
              data:{
                 requireLogin:true
@@ -197,7 +197,7 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
          .state('main.addBusRoute', { // login Page
             url: "transport/addBusRoute",
-            templateUrl: "app/components/addBusRoute/addBusRoute.html",
+            templateUrl: "app/components/addBusRoute/addBusroute.html",
             controller:"BusRouteController",     
              data:{
                 requireLogin:true
