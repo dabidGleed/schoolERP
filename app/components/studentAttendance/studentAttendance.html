@@ -36,18 +36,18 @@
 
                 <div class="col-md-3">
                     <div class="form-group">
-                      <label>Class</label>
-                      <select class="form-control select2" ng-options="class.class_id as class.name for class in classDatanew" data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
-                      </select>                       
+                        <label>Class</label>
+                        <select class="form-control select2" ng-options="class.class_id as class.name for class in classDatanew" data-ng-change="populateSections(classId)" style="width: 100%;" ng-model="classId">
+                      </select>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Section</label>
-                        <select class="form-control select2"  ng-options="sec.section_id as sec.name for sec in secData" data-ng-change="getStudents(secId)" style="width: 100%;" ng-model="secId">                    
+                        <select class="form-control select2" ng-options="sec.section_id as sec.name for sec in secData" data-ng-change="getStudents(secId)" style="width: 100%;" ng-model="secId">                    
                         </select>
-                      
+
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                <button type="button" class="btn btn-primary pull-right" ng-click="submitBulkAttendance()">
+                    <button type="button" class="btn btn-primary pull-right" ng-click="submitBulkAttendance()">
                 <i class="fa fa-save"></i>
                 Submit Attendance
                 </button>
@@ -111,7 +111,7 @@
                                 <th>Roll No</th>
                                 <th>Name</th>
                                 <th>Attendance
-                                <select ng-if="check" class="select2" style="font-weight:normal;margin-left:15px;" ng-change="markAttendance(attendVal)" ng-model="attendVal">
+                                    <select ng-if="check" class="select2" style="font-weight:normal;margin-left:15px;" ng-change="markAttendance(attendVal)" ng-model="attendVal">
                                   <option selected="selected">--Select--</option>
                                   <option value="Present">Present</option>
                                   <option value="Late with excuse">Late with excuse</option>
@@ -129,7 +129,7 @@
                         <tbody>
 
                             <tr ng-repeat="student in attendanceBox">
-                                
+
                                 <td>{{$index+1}}</td>
                                 <td>
                                     <div class="squaredFour">
@@ -141,7 +141,6 @@
                                 <td>{{student.roll_no}}</td>
                                 <td>{{student.first_name}} {{student.last_name}}</td>
                                 <td>
-                                    <!--{{student}}    -->
                                     <div class="radio radio-info radio-inline">
                                         <input ng-change="attn(student,attend)" type="radio" ng-model="student.status" value="Present" id="attendencetype+{{$index}}" name="attendencetype+{{$index}}">
                                         <label for="inlineRadio1"> Present </label>
