@@ -2,7 +2,7 @@ angular.module('school_erp')
     .controller("studentAttendanceController", ['$http', '$scope', 'studentServices', 'globalServices', 'ngDialog', function($http, $scope, studentServices, globalServices, ngDialog) {
         $scope.studentData = [];
         $scope.classDatanew = [];
-        $scope.all = [];
+        $scope.attendanceBox = [];
 
 
         globalServices.getClass()
@@ -23,14 +23,19 @@ angular.module('school_erp')
                 .error(function(data, success) {})
         }
 
+        // Get All Students
         $scope.getStudents = function(classSecValue) {
 
             studentServices.getStudents(classSecValue)
                 .success(function(data, status) {
                     $scope.studentData = data.students;
+                    $scope.attendanceBox = [];
+                    $scope.attendanceStatus();
                 })
                 .error(function(data, success) {})
         }
+
+        // Add attendance single
         $scope.addAttendance = function(studentVal, status) {
             var Attendance = {
                 class_id: $scope.classId,
@@ -60,45 +65,74 @@ angular.module('school_erp')
 
 
         $scope.students = [];
-        $scope.attn = function(student, status) {
-            var noMatch = true;
-            var obj = {
-                student_id: student.student_id,
-                status: status
-            }
 
-            // $scope.students.forEach(function(students) {             
-            //     if(students.student_id == student.student_id){
-            //         students.status = status;
-            //         noMatch = false;
-            //     } else {
-            //         noMatch = true;
-            //     }
-            // });
-
-            // if(noMatch){
-            //     $scope.students.push(obj);
-            //     noMatch = false;
-            // }
-
-            var students;
-            while (students.student_id == student.student_id) {
-                students.status = status;
-            }
-            //  console.log(obj);
+        // To Select All for Bulk Attendance report
+        $scope.tickAll = function(status) {
+            $scope.attendanceBox.forEach(function(element) {
+                if(status){
+                  element.selected = true;
+                } else{
+                  element.selected = false;
+                }
+            }); 
         }
 
+        // Mark bulk attendance status
+        $scope.markAttendance = function(status){
+            $scope.attendanceBox.forEach(function(element) {
+                if(element.selected){
+                  element.status = status;
+                }
+            }); 
+        }
+
+        // create a custom listing JSON data
         $scope.attendanceStatus = function() {
             $scope.studentData.forEach(function(element) {
                 var obj = {
                     student_id: element.student_id,
-                    status: "None"
+                    admission_no: element.admission_no, // remove
+                    roll_no: element.roll_no, // remove
+                    first_name: element.first_name, // remove
+                    last_name: element.last_name, // remove
+                    selected: false,
+                    status: "none"
                 }
-                $scope.all.push(obj);
+                $scope.attendanceBox.push(obj);
+            });            
+        }
 
-            });
+        $scope.sendAttendanceHolder = [];
+        $scope.submitBulkAttendance = function(){
+            var allowSubmission = false;
+            var i = 0;
+            while(i <= $scope.attendanceBox.length){
+                if($scope.attendanceBox[i].status == 'none'){
+                    allowSubmission = false;
+                    break;
+                } else{
+                    allowSubmission = true;
+                }
+                i++;
+            }
+
+            if(allowSubmission){
+            $scope.attendanceBox.forEach(function(element) {
+                var obj = {
+                    student_id: element.student_id,
+                    status: element.status
+                }
+                $scope.sendAttendanceHolder.push(obj);
+                
+            });    
+             console.log($scope.sendAttendanceHolder);
+            } else {
+                ngDialog.open({
+                        template: '<p> Few students are not marked properly</p>',
+                        plain: true
+                    });
+            }
 
 
-            console.log($scope.all);
         }
     }])
