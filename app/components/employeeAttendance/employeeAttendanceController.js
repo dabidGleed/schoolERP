@@ -87,6 +87,7 @@ angular.module('school_erp')
             }
 
             if (allowSubmission) {
+
                 $scope.attendanceBox.forEach(function(element) {
                     var obj = {
                         employee_id: element.employee_id,
