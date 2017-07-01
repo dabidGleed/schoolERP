@@ -1,13 +1,13 @@
 angular.module('school_erp').config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
-        .state('login', { // login Page
-            url: "/login",
-            templateUrl: "app/components/login/login.html",
-            controller: "loginController",
-            data: {
-                requireLogin: false
-            }
-        })
+    // .state('login', { // login Page
+    //     url: "/login",
+    //     templateUrl: "app/components/login/login.html",
+    //     controller: "loginController",
+    //     data: {
+    //         requireLogin: false
+    //     }
+    // })
         .state('main', {
             url: "/",
             views: {
@@ -213,13 +213,29 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
         })
 
     .state('main.addVehicle', {
-        url: "transport/addVehicle",
-        templateUrl: "app/components/addVehicle/addVehicle.html",
-        controller: "addVehicleController",
-        data: {
-            requireLogin: true
-        }
-    });
-    $urlRouterProvider.otherwise("/login");
+            url: "transport/addVehicle",
+            templateUrl: "app/components/addVehicle/addVehicle.html",
+            controller: "addVehicleController",
+            data: {
+                requireLogin: true
+            }
+        })
+        .state('first_page', { // login Page
+            url: "/first_page",
+            templateUrl: "app/components/first_page/firstPage.html",
+            data: {
+                requireLogin: false
+            }
+        })
+        .state('login_page', { // login Page
+
+            url: "/login_page",
+            templateUrl: "app/components/login_page/loginPage.html",
+            controller: "loginController",
+            data: {
+                requireLogin: false
+            }
+        });
+    $urlRouterProvider.otherwise("/first_page");
 
 });
