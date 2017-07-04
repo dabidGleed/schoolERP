@@ -236,6 +236,6 @@ angular.module('school_erp').config(function($stateProvider, $urlRouterProvider,
                 requireLogin: false
             }
         });
-    $urlRouterProvider.otherwise("/first_page");
+    $urlRouterProvider.otherwise("/login_page");
 
 });
