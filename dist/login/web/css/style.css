@@ -237,6 +237,7 @@ body {
     text-align: center;
     font-family: 'Philosopher', sans-serif;
     background: url(../images/school2.png) no-repeat !important;
+    background-size: cover !important;
     position: relative;
 }
 
