@@ -4,7 +4,7 @@ angular.module('school_erp')
 
          $scope.logout = function(){                
                 authService.logout();
-                 $state.go('login');
+                 $state.go('login_page');
         };        
 
 }])
