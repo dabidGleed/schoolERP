@@ -55,6 +55,19 @@ angular.module('school_erp')
     };
 
 
+ studentServices.setBulkAttendance = function(dataValue,classVal,section) {
+            var test = {
+                "employees" : dataValue,
+            };
+            console.log(dataValue);
+            return $http({
+                method: 'POST',
+                url: globalServices.globalValue.baseURL + 'api/attendancebulk/'+ classVal + '/' + section + '/' + 'SCH-9271',
+                data: $.param(test),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            })
+        };
+
       return studentServices;
 
 }]);

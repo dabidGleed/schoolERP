@@ -103,19 +103,14 @@ angular.module('school_erp')
 
         $scope.sendAttendanceHolder = [];
         $scope.submitBulkAttendance = function() {
+            var dataB = $scope.attendanceBox;
             var allowSubmission = false;
             var i = 0;
-            while (i <= $scope.attendanceBox.length) {
-                if ($scope.attendanceBox[i].status == 'none') {
-                    allowSubmission = false;
-                    break;
-                } else {
-                    allowSubmission = true;
-                }
-                i++;
-            }
+             var filterBox = dataB.filter(function(data){
+                return data.status == 'none';
+            })
 
-            if (allowSubmission) {
+            if (filterBox.length == 0) {
                 $scope.attendanceBox.forEach(function(element) {
                     var obj = {
                         student_id: element.student_id,
@@ -124,7 +119,12 @@ angular.module('school_erp')
                     $scope.sendAttendanceHolder.push(obj);
 
                 });
-                console.log($scope.sendAttendanceHolder);
+                // console.log($scope.sendAttendanceHolder);
+                studentServices.setBulkAttendance($scope.sendAttendanceHolder, $scope.classId, $scope.secId)
+                .success(function(data, status) {
+                   
+                })
+                .error(function(data, success) {})
             } else {
                 ngDialog.open({
                     template: '<p> Few students are not marked properly</p>',
