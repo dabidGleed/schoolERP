@@ -9,19 +9,22 @@ angular.module('school_erp')
             };
             authService.login(dataValue)
                 .success(function(data, status) {
-                    $window.localStorage["userInfo"] = JSON.stringify(data);
-                    $rootScope.role = data.role;
+                   
+                    console.log(data);
                     if (status != 401) {
+                         $window.localStorage["userInfo"] = JSON.stringify(data);
+                         $rootScope.role = data.role;
                         $rootScope.loginPage = false;
                         $state.go('main.dashboard');
-                    } else {
-                        ngDialog.open({
+                    }
+                })
+                .error(function(data, success) {
+                    $scope.datab = {};
+                     ngDialog.open({
                             template: '<p>' + data + '</p>',
                             plain: true
                         });
-                    }
                 })
-                .error(function(data, success) {})
         };
 
         $scope.logout = function() {
