@@ -43,7 +43,7 @@ angular.module('school_erp')
             .success(function(data, status){
                 console.log(subId)
                 $scope.chapterData = data[subId+""];      
-                $scope.chapterId =  $scope.chapterData[0].lesson_id     
+                $scope.chapterId =  $scope.chapterData[0].chapter_name     
                 $scope.getAssignments($scope.chapterId);
             })
             .error(function(data,success){
