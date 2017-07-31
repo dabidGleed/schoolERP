@@ -10,4 +10,6 @@ angular.module('school_erp')
          
      }
 
+     
+
 }])

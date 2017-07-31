@@ -7,5 +7,7 @@ angular.module('school_erp')
                  $state.go('login_page');
         };        
 
+       
+
 }])
 
