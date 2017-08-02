@@ -74,7 +74,7 @@ angular.module('school_erp')
             subjectsServices.getSubjects(secId)
             .success(function(data, status){
                 $scope.subjectsData = data.subjects;
-                $scope.subjectId = $scope.subjectsData[0].subject_id;
+                $scope.subjectId = $scope.subjectsData[0].name;
                 $scope.getExamPapers($scope.subjectId, $scope.examScheduleId);
             })
             .error(function(data,success){

@@ -75,19 +75,13 @@ angular.module('school_erp')
         $scope.sendAttendanceHolder = [];
         $scope.submitBulkAttendance = function() {
             var allowSubmission = false;
+            var dataB = $scope.attendanceBox;
             var i = 0;
-            while (i <= $scope.attendanceBox.length) {
-                if ($scope.attendanceBox[i].status == 'none') {
-                    allowSubmission = false;
-                    break;
-                } else {
-                    allowSubmission = true;
-                }
-                i++;
-            }
+           var filterBox = dataB.filter(function(data){
+                return data.status == 'none';
+            })
 
-            if (allowSubmission) {
-
+            if (filterBox.length == 0) {
                 $scope.attendanceBox.forEach(function(element) {
                     var obj = {
                         employee_id: element.employee_id,
@@ -96,7 +90,8 @@ angular.module('school_erp')
                     $scope.sendAttendanceHolder.push(obj);
 
                 });
-                employeeServices.setBulkAttendance(bulkAttendance);
+
+                employeeServices.setBulkAttendance($scope.sendAttendanceHolder);
             } else {
                 ngDialog.open({
                     template: '<p> Few students are not marked properly</p>',

@@ -31,11 +31,14 @@ angular.module('school_erp')
         };
 
         employeeService.setBulkAttendance = function(dataValue) {
+            var test = {
+                "employees" : dataValue,
+            };
             console.log(dataValue);
             return $http({
                 method: 'POST',
                 url: globalServices.globalValue.baseURL + 'api/employee_attendancebulk/SCH-9271',
-                data: $.param(dataValue),
+                data: $.param(test),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             })
         };

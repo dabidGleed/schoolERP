@@ -37,7 +37,7 @@ angular.module('school_erp')
             subjectsServices.getSubjects(secId)
             .success(function(data, status){
                 $scope.subData = data.subjects;
-                $scope.subId = $scope.subData[0].subject_id;
+                $scope.subId = $scope.subData[0].subject_name;
                 $scope.getChapters($scope.subId);
             })
             .error(function(data,success){
@@ -61,7 +61,7 @@ angular.module('school_erp')
             $scope.addChapters= function(data){
              var chapterDetails = {
                     title:$scope.data.title,
-                    code:$scope.data.code,
+                    code:$scope.data.chapter_code,
                     no_of_topics:$scope.data.no_of_topics,
                     description:$scope.data.description
              }
